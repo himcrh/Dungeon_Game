@@ -1,5 +1,5 @@
 #include"easy_draw.h"
-void drawAlpha(IMAGE* picture, int  picture_x, int picture_y) //x为载入图片的X坐标，y为Y坐标
+void drawAlpha(int  picture_x, int picture_y,IMAGE* picture) //x为载入图片的X坐标，y为Y坐标
 {
 
 	// 变量初始化
