@@ -7,6 +7,7 @@ bool is_Forbidden(int x, int y) {
     return 1;
   return 0;
 }
+<<<<<<< HEAD
 void hero_move() {
   if (_kbhit()) {
     switch (_getch()) {
@@ -32,5 +33,17 @@ void hero_move() {
         break;
     }
   }
+=======
+void hero_move() 
+{
+	if (_kbhit())
+	{
+			char input = _getch();
+			if (input == 'a'&&isForbidden()) Hero.position_x -= 0.25;
+			else if (input == 'd'&&isForbidden()) Hero.position_x += 0.25;
+			else if (input == 'w'&&isForbidden()) Hero.position_y -= 0.25;
+			else if (input == 's'&&isForbidden()) Hero.position_y += 0.25;
+	}
+>>>>>>> 1e370c3efc7cdf9ccf2584c949c4821e4e3c9cfc
 
 }
