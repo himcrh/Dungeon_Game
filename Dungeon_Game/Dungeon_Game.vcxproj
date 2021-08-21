@@ -21,9 +21,11 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\easy_draw.cpp" />
+    <ClCompile Include="src\hero.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\easy_draw.h" />
+    <ClInclude Include="src\hero.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Map_file.txt" />

@@ -21,9 +21,15 @@
     <ClCompile Include="src\easy_draw.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\hero.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\easy_draw.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hero.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

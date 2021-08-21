@@ -63,6 +63,11 @@ void test() {
   Sleep(5000000);
 }
 
+void gameover() {
+    EndBatchDraw();
+    closegraph();
+}
+
 void show() {
 
   //±³¾°»æÍ¼
@@ -82,4 +87,5 @@ void show() {
 
   Sleep(2);
   FlushBatchDraw();
+
 }
