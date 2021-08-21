@@ -16,10 +16,11 @@ IMAGE img_test;
 
 void test(void); //测试用
 void start_initial(void);  //初始化，加载文件
-
+void gameover(void);//测试上传
 int main() {
   start_initial();
   test();
+  gameover();
   return 0;
 }
 
@@ -36,4 +37,9 @@ void test() {
   drawAlpha(&img_test,0, 0);
   FlushBatchDraw();
   Sleep(5000000);
+}
+void gameover() {
+	EndBatchDraw();
+	closegraph();
+
 }
