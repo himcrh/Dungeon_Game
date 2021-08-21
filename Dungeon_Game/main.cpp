@@ -19,6 +19,8 @@ IMAGE img_background;
 IMAGE img_test;
 IMAGE img_floor;
 IMAGE img_wall;
+IMAGE img_monster_1, img_monster_2, img_monster_3, img_monster_4, img_monster_5;
+
 void test(void); //测试用
 void start_initial(void);  //初始化，加载文件
 void show(void);
@@ -53,9 +55,13 @@ void start_initial() {
 
   initgraph(Width, High);
   setbkmode(TRANSPARENT);
-  loadimage(&img_test, _T("images\\test.png"));
   loadimage(&img_floor, _T("images\\floor.png"));
   loadimage(&img_wall, _T("images\\wall.png"));
+  loadimage(&img_monster_1, _T("images\\monster_1.png"));
+  loadimage(&img_monster_2, _T("images\\monster_2.png"));
+  loadimage(&img_monster_3, _T("images\\monster_3.png"));
+  loadimage(&img_monster_4, _T("images\\monster_4.png"));
+  loadimage(&img_monster_5, _T("images\\monster_5.png"));
   BeginBatchDraw();
 }
 
@@ -80,6 +86,18 @@ void show() {
           drawAlpha(j * 40, i * 40, &img_floor);
           break;
         case 1:
+          drawAlpha(j * 40, i * 40, &img_wall);
+          break;
+        case 2:
+          drawAlpha(j * 40, i * 40, &img_wall);
+          break;
+        case 3:
+          drawAlpha(j * 40, i * 40, &img_wall);
+          break;
+        case 4:
+          drawAlpha(j * 40, i * 40, &img_wall);
+          break;
+        case 5:
           drawAlpha(j * 40, i * 40, &img_wall);
           break;
       }
