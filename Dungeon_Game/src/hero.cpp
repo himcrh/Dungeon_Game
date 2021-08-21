@@ -1,12 +1,12 @@
 #include "hero.h"
 #include"global.h"
 
-//int map[10][13][13];
 bool is_Forbidden(int x, int y) {
   if (map[1][x][y] == 0)
     return 1;
   return 0;
 }
+
 void hero_move() {
   if (_kbhit()) {
     switch (_getch()) {
