@@ -2,6 +2,7 @@
 #define hero
 #include<graphics.h>
 #include<conio.h>
+
 struct HERO {
 	float position_x, position_y;
 	int HP;
@@ -11,8 +12,8 @@ struct HERO {
 	int Level;
 	int money;
 	int key_yellow, key_blue, key_red;
-}Hero;
+};
 //∂®“ÂHero
 void hero_move(void);
-int isForbidden();
+bool is_Forbidden(int x,int y);
 #endif  // !hero

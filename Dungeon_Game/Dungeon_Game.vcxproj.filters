@@ -32,6 +32,9 @@
     <ClInclude Include="src\hero.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="src\global.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Map_file.txt" />

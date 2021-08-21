@@ -7,22 +7,22 @@
 #include<stdlib.h>
 #include<fstream>
 #include"src/easy_draw.h"
+#include"src/hero.h"
+#include"src/global.h"
 #pragma comment(lib, "winmm.lib")
 using namespace std;
 #define High 440
 #define Width 880
 #define Unit 40
 int map[10][13][13];
-
 IMAGE img_background;
 IMAGE img_test;
 IMAGE img_floor;
 IMAGE img_wall;
-
 void test(void); //测试用
 void start_initial(void);  //初始化，加载文件
 void show(void);
-
+HERO Hero;
 int main() {
   start_initial();
   //test();
@@ -48,7 +48,9 @@ void start_initial() {
       }
     }
   }
-  
+  fclose(stdin);
+  freopen("CON", "r", stdin);
+
   initgraph(Width, High);
   setbkmode(TRANSPARENT);
   loadimage(&img_test, _T("images\\test.png"));
@@ -83,8 +85,8 @@ void show() {
       }
     }
   }
-
-
+  hero_move();
+  drawAlpha(Hero.position_x*40, Hero.position_y*40, &img_wall);
   Sleep(2);
   FlushBatchDraw();
 

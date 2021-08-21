@@ -25,6 +25,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\easy_draw.h" />
+    <ClInclude Include="src\global.h" />
     <ClInclude Include="src\hero.h" />
   </ItemGroup>
   <ItemGroup>
