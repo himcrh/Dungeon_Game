@@ -58,6 +58,3 @@ Generated\ Files/
 *.svclog
 *.scc
 .idea/
-*.vcxproj
-*.filters
-*.user
