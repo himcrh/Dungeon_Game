@@ -41,5 +41,4 @@ void test() {
 void gameover() {
 	EndBatchDraw();
 	closegraph();
-
 }
