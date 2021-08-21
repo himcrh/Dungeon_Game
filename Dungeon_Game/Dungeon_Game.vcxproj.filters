@@ -27,4 +27,7 @@
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Map_file.txt" />
+  </ItemGroup>
 </Project>
