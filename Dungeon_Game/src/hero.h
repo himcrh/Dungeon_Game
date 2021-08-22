@@ -12,6 +12,7 @@ struct HERO {
 	int Level;
 	int money;
 	int key_yellow, key_blue, key_red;
+    int dir;//人物面向方向
 };
 void hero_initial(void);
 void hero_move(void);

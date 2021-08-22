@@ -40,28 +40,33 @@ void hero_initial(void) {
   Hero.attack = 50;
   Hero.stair = 1;
   Hero.Level = 1;
+  Hero.dir = 4;
 }
 
 void hero_move() {
   if (_kbhit()) {
       switch (_getch()) {
           //up
-      case 72:
+        case 72:
+          Hero.dir = 1;
           if (is_Forbidden(Hero.position_x, Hero.position_y - 10,1))
               Hero.position_y -= 10;
           break;
           //down
       case 80:
+          Hero.dir = 2;
           if (is_Forbidden(Hero.position_x, Hero.position_y + 10,2))
               Hero.position_y += 10;
           break;
           //left
       case 75:
+          Hero.dir = 3;
           if (is_Forbidden(Hero.position_x - 10, Hero.position_y,3))
               Hero.position_x -= 10;
           break;
           //right
       case 77:
+          Hero.dir = 4;
           if (is_Forbidden(Hero.position_x + 10, Hero.position_y,4))
               Hero.position_x += 10;
           break;

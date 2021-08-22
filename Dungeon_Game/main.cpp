@@ -11,7 +11,7 @@ IMAGE img_monsters[7];
 IMAGE img_heart,img_peach;
 IMAGE img_cloud[5];
 
-IMAGE img_hero,img_bighero;
+IMAGE img_hero[5],img_bighero;
 IMAGE img_startmenu;
 
 void start_initial(void);  //初始化，加载文件
@@ -39,7 +39,10 @@ void start_initial() {
   setbkmode(TRANSPARENT);
   loadimage(&img_floor, _T("images\\floor.png"));
   loadimage(&img_wall, _T("images\\wall.png"));
-  loadimage(&img_hero, _T("images\\Link.png"));
+  loadimage(&img_hero[1], _T("images\\Link_U.png"));
+  loadimage(&img_hero[2], _T("images\\Link_D.png"));
+  loadimage(&img_hero[3], _T("images\\Link_L.png"));
+  loadimage(&img_hero[4], _T("images\\Link_R.png"));
   loadimage(&img_monsters[1], _T("images\\monster_1.png"));
   loadimage(&img_monsters[2], _T("images\\monster_2.png"));
   loadimage(&img_monsters[3], _T("images\\monster_3.png"));
@@ -70,7 +73,7 @@ void show() {
   draw_fixobject();
   draw_unfixobject();
   hero_move();
-  drawAlpha(Hero.position_x, Hero.position_y, &img_hero);
+  drawAlpha(Hero.position_x, Hero.position_y, &img_hero[Hero.dir]);
 
   Sleep(2);
   FlushBatchDraw();
