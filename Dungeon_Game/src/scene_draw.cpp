@@ -13,7 +13,7 @@ void draw_nomonster(int x) {
     outtextxy(Width * 0.76, High * 0.1, _T("RUN,MY BOY!!!"));
 }
 void draw_monster(int x, Monster cur_M) {
-    drawAlpha(Width * 0.52, High * 0.3,&img_monsters[x]);
+    drawAlpha(Width * 0.56, High * 0.3,&img_monsters[x]);
     settextcolor(WHITE);
     settextstyle(30, 0, _T("Helvetica"));
     TCHAR s[10];
@@ -57,8 +57,11 @@ void draw_information(void) {
     _stprintf_s(s, _T("%d"), Hero.money);
     outtextxy(Width * 0.64, High * 0.82, s);
     settextcolor(BLUE);
-    outtextxy(Width * 0.52, High * 0.9, _T("Welcome to the wonderland!"));
-    drawAlpha(Width * 0.82, High * 0.52, &img_bighero);
+    outtextxy(Width * 0.52, High * 0.92, _T("Welcome to the wonderland!"));
+    outtextxy(Width * 0.89, High * 0.53, _T("Lv: "));
+    _stprintf_s(s, _T("%d"), Hero.Level);
+    outtextxy(Width * 0.93, High * 0.53, s);
+    drawAlpha(Width * 0.8, High * 0.58, &img_bighero);
 }
 
 void draw_fixobject(void) {

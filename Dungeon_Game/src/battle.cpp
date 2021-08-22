@@ -41,6 +41,11 @@ void battle_details(int cur_monster,int x,int y) {
   }
   map[Hero.stair][x][y] = 0;
   Hero.EXP += cur_M.EXP;
+  if (Hero.EXP > 100) {
+      Hero.EXP -= 100;
+      Hero.Level++;
+      Hero.attack += 10;
+  }
   Hero.money += cur_M.money;
 }
 
