@@ -9,9 +9,9 @@ IMAGE img_floor;
 IMAGE img_wall;
 IMAGE img_monsters[7];
 IMAGE img_heart,img_peach;
-IMAGE img_cloud_1,img_cloud_2,img_cloud_3;
+IMAGE img_cloud[5];
 
-IMAGE img_hero;
+IMAGE img_hero,img_bighero;
 IMAGE img_startmenu;
 
 void start_initial(void);  //初始化，加载文件
@@ -39,20 +39,19 @@ void start_initial() {
   setbkmode(TRANSPARENT);
   loadimage(&img_floor, _T("images\\floor.png"));
   loadimage(&img_wall, _T("images\\wall.png"));
-
-  loadimage(&img_hero, _T("images\\monster_1.png"));
+  loadimage(&img_hero, _T("images\\Link.png"));
   loadimage(&img_monsters[1], _T("images\\monster_1.png"));
   loadimage(&img_monsters[2], _T("images\\monster_2.png"));
   loadimage(&img_monsters[3], _T("images\\monster_3.png"));
   loadimage(&img_monsters[4], _T("images\\monster_4.png"));
   loadimage(&img_monsters[5], _T("images\\monster_5.png"));
-
   loadimage(&img_heart, _T("images\\heart.png"));
   loadimage(&img_peach, _T("images\\peach.png"));
-  loadimage(&img_cloud_1, _T("images\\cloud_1.png"));
-  loadimage(&img_cloud_2, _T("images\\cloud_2.png"));
-  loadimage(&img_cloud_3, _T("images\\cloud_3.png"));
+  loadimage(&img_cloud[1], _T("images\\cloud_1.png"));
+  loadimage(&img_cloud[2], _T("images\\cloud_2.png"));
+  loadimage(&img_cloud[3], _T("images\\cloud_3.png"));
   loadimage(&img_startmenu, _T("images\\startmenu.png"));
+  loadimage(&img_bighero, _T("images\\BigLink.png"));
   BeginBatchDraw();
   while (gamestatus == 0)  start_menu();
 }
@@ -65,7 +64,9 @@ void gameover() {
 
 void show() {
 
+
   draw_backgraund();
+  draw_information();
   draw_fixobject();
   draw_unfixobject();
   hero_move();
@@ -73,5 +74,4 @@ void show() {
 
   Sleep(2);
   FlushBatchDraw();
-
 }
