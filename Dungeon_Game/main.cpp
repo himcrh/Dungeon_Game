@@ -15,12 +15,14 @@ using namespace std;
 #define Width 880
 #define Unit 40
 int map[10][13][13];
+int canvas[440][440];
 IMAGE img_background;
 IMAGE img_test;
 IMAGE img_floor;
 IMAGE img_wall;
-IMAGE img_monster_1, img_monster_2, img_monster_3, img_monster_4, img_monster_5;
-
+IMAGE img_monster_1, img_monster_2, img_monster_3, img_monster_4, img_monster_5,img_monster_6;
+IMAGE img_heart,img_peach;
+IMAGE img_cloud_1,img_cloud_2,img_cloud_3;
 void test(void); //测试用
 void start_initial(void);  //初始化，加载文件
 void show(void);
@@ -46,7 +48,7 @@ void start_initial() {
   for (int i = 1; i <= n; i++) {
     for (int j = 0; j <= 10; j++) {
       for (int k = 0; k <= 10; k++) {
-        scanf_s("%d", &map[i][j][k]);
+        scanf_s("%d", &map[i][k][j]);
       }
     }
   }
@@ -62,11 +64,16 @@ void start_initial() {
   loadimage(&img_monster_3, _T("images\\monster_3.png"));
   loadimage(&img_monster_4, _T("images\\monster_4.png"));
   loadimage(&img_monster_5, _T("images\\monster_5.png"));
+  loadimage(&img_monster_6, _T("images\\monster_6.png"));
+  loadimage(&img_heart, _T("images\\heart.png"));
+  loadimage(&img_peach, _T("images\\peach.png"));
+  loadimage(&img_cloud_1, _T("images\\cloud_1.png"));
+  loadimage(&img_cloud_2, _T("images\\cloud_2.png"));
+  loadimage(&img_cloud_3, _T("images\\cloud_3.png"));
   BeginBatchDraw();
 }
 
 void test() {
-  drawAlpha(0, 0,&img_test);
   FlushBatchDraw();
   Sleep(5000000);
 }
@@ -81,12 +88,17 @@ void show() {
   //背景绘图
   for (int i = 0; i <= 10; i++) {
     for (int j = 0; j <= 10; j++) {
-      switch (map[1][i][j]) {
+      switch (map[1][j][i]) {
         case 0:
           drawAlpha(j * 40, i * 40, &img_floor);
           break;
         case 1:
           drawAlpha(j * 40, i * 40, &img_wall);
+          for (int k = i * 40; k < (i + 1) * 40; k++) {
+              for (int m = j * 40; m < (j + 1) * 40; m++) {
+                  canvas[m][k] = 1;
+              }
+          }
           break;
         case 2:
           drawAlpha(j * 40, i * 40, &img_wall);
@@ -104,7 +116,7 @@ void show() {
     }
   }
   hero_move();
-  drawAlpha(Hero.position_x*40, Hero.position_y*40, &img_wall);
+  drawAlpha(Hero.position_x, Hero.position_y, &img_monster_6);
   Sleep(2);
   FlushBatchDraw();
 

@@ -4,7 +4,7 @@
 #include<conio.h>
 
 struct HERO {
-	float position_x, position_y;
+	int position_x, position_y;
 	int HP;
 	int attack;
 	int defence;
