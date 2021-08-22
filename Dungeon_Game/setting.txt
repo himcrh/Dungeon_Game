@@ -1,7 +1,7 @@
 0：地面空气
 1：墙
-2：cloud_1
-3：cloud_2
+2：下行传送阵
+3：上行传送阵
 4：cloud_3
 5：peach
 6：hrart

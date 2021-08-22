@@ -36,6 +36,8 @@ void battle_details(int cur_monster,int x,int y) {
     Sleep(200);
   }
   map[Hero.stair][x][y] = 0;
+  Hero.EXP += cur_M.EXP;
+  Hero.money += cur_M.money;
 }
 
 

@@ -10,7 +10,7 @@ void load_Monster(void) {
   int n;
   scanf_s("%d", &n);
   for (int i = 1; i <= n; i++)
-    scanf_s("%d %d %d", &Monsters[i].HP, &Monsters[i].attack, &Monsters[i].EXP);
+    scanf_s("%d %d %d %d", &Monsters[i].HP, &Monsters[i].attack, &Monsters[i].EXP,&Monsters[i].money);
   fclose(stdin);
   freopen("CON", "r", stdin);
 }

@@ -35,6 +35,37 @@ bool is_Forbidden(int x, int y) {
   return 0;
 }
 
+void hero_transfer(int x, int y) {
+  if (x % 40 || y % 40)
+    return;
+  x /= 40;
+  y /= 40;
+  //下行传送
+  if (map[Hero.stair][x][y] == 2) {
+    Hero.stair--;
+    for (int i = 0; i <= 10; i++) {
+      for (int j = 0; j <= 10; j++) {
+        if (map[Hero.stair][i][j] == 3) {
+          Hero.position_x = i * 40;
+          Hero.position_y = j * 40;
+        }
+      }
+    }
+  }
+  //上行传送
+  if (map[Hero.stair][x][y] == 3) {
+    Hero.stair++;
+    for (int i = 0; i <= 10; i++) {
+      for (int j = 0; j <= 10; j++) {
+        if (map[Hero.stair][i][j] == 2) {
+          Hero.position_x = i * 40;
+          Hero.position_y = j * 40;
+        }
+      }
+    }
+  }
+}
+
 void hero_initial(void) {
   Hero.HP = 500;
   Hero.attack = 50;
@@ -42,6 +73,8 @@ void hero_initial(void) {
   Hero.Level = 1;
   Hero.dir = 4;
 }
+
+
 
 void hero_move() {
   if (_kbhit()) {
@@ -69,6 +102,9 @@ void hero_move() {
           Hero.dir = 4;
           if (is_Forbidden(Hero.position_x + 10, Hero.position_y))
               Hero.position_x += 10;
+          break;
+        case 32:
+          hero_transfer(Hero.position_x, Hero.position_y);
           break;
       }
   }

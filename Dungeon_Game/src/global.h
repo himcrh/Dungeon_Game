@@ -30,4 +30,6 @@ extern IMAGE img_heart, img_peach;
 extern IMAGE img_startmenu;
 extern IMAGE img_hero[5],img_bighero;
 extern IMAGE img_cloud[5];
+extern IMAGE img_circle_up;
+extern IMAGE img_circle_down;
 #endif  // !Global

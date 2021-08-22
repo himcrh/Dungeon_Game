@@ -17,5 +17,5 @@ struct HERO {
 void hero_initial(void);
 void hero_move(void);
 bool is_Forbidden(int x,int y);
-
+void hero_transfer(int x, int y);
 #endif  // !hero

@@ -45,6 +45,10 @@ void draw_fixobject(void) {
     for (int j = 0; j <= 10; j++) {
       if (map[Hero.stair][i][j] == 1)
         drawAlpha(i*Unit, j*Unit, &img_wall);
+      if (map[Hero.stair][i][j] == 2)
+        drawAlpha(i * Unit, j * Unit, &img_circle_down);
+      if (map[Hero.stair][i][j] == 3)
+        drawAlpha(i * Unit, j * Unit, &img_circle_up);
     }
   }
 }

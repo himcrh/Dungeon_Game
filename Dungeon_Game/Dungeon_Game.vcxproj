@@ -37,6 +37,7 @@
   <ItemGroup>
     <Text Include="Map_file.txt" />
     <Text Include="Monster_file.txt" />
+    <Text Include="setting.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
