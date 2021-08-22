@@ -2,7 +2,6 @@
 #define hero
 #include<graphics.h>
 #include<conio.h>
-
 //∂®“ÂHERO
 struct HERO {
 	int position_x, position_y;

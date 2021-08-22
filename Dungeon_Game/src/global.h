@@ -11,18 +11,19 @@
 #include"easy_draw.h"
 #include"hero.h"
 #include"scene_draw.h"
-
+#include"Monsters.h"
+using namespace std;
 #define High 440
 #define Width 880
 #define Unit 40
 
 extern int map[10][13][13];
 extern HERO Hero;
+extern Monster Monsters[7];
 extern IMAGE img_background;
 extern IMAGE img_test;
 extern IMAGE img_floor;
 extern IMAGE img_wall;
-extern IMAGE img_monster_1, img_monster_2, img_monster_3, img_monster_4,
-    img_monster_5;
+extern IMAGE img_monsters[7];
 extern IMAGE img_hero;
 #endif  // !Global

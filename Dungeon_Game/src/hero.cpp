@@ -4,6 +4,8 @@
 bool is_Forbidden(int x, int y) {
   int dx = x / 40;
   int dy = y / 40;
+  if (x % 40 == 0 && y % 40 == 0)
+    return 1;
   if (x % 40 == 0) {
     if (map[Hero.stair][dx][dy] != 1 && map[Hero.stair][dx][dy + 1] != 1)
       return 1;
