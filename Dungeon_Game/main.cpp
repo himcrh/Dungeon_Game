@@ -56,6 +56,7 @@ void start_initial() {
   loadimage(&img_cloud[3], _T("images\\cloud_3.png"));
   loadimage(&img_startmenu, _T("images\\startmenu.png"));
   loadimage(&img_bighero, _T("images\\BigLink.png"));
+
   loadimage(&img_circle_up, _T("images\\circle_up.png"));
   loadimage(&img_circle_down, _T("images\\circle_down.png"));
   
@@ -70,15 +71,12 @@ void gameover() {
 }
 
 void show() {
-
-
   draw_backgraund();
   draw_information();
   draw_fixobject();
   draw_unfixobject();
   hero_move();
   drawAlpha(Hero.position_x, Hero.position_y, &img_hero[Hero.dir]);
-
   Sleep(2);
   FlushBatchDraw();
 }

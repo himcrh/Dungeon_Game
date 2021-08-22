@@ -17,7 +17,8 @@ bool vs_cmp(int cur_monster,int x,int y) {
     battle_details(cur_monster,x,y);
     return true;
   }
-    
+  //ª·…¡
+  draw_nomonster(cur_monster);
   return false;
 }
 
@@ -29,6 +30,7 @@ void battle_details(int cur_monster,int x,int y) {
     Hero.HP -= cur_M.attack;
     draw_backgraund();
     draw_information();
+    draw_monster(cur_monster, cur_M);
     draw_fixobject();
     draw_unfixobject();
     drawAlpha(Hero.position_x, Hero.position_y, &img_hero[Hero.dir]);
