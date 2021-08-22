@@ -29,7 +29,8 @@ void battle_details(int cur_monster,int x,int y) {
   //提取出一个moster
   while (cur_M.HP > 0) {
     cur_M.HP -= Hero.attack;
-    Hero.HP -= cur_M.attack;
+    if (cur_M.HP > 0)
+      Hero.HP -= cur_M.attack;
     draw_backgraund();
     draw_information();
     draw_monster(cur_monster, cur_M);
