@@ -18,7 +18,9 @@ bool vs_cmp(int cur_monster,int x,int y) {
     return true;
   }
   //»áÉÁ
+  Monster cur_M = Monsters[cur_monster];
   draw_nomonster(cur_monster);
+  draw_monster(cur_monster, cur_M);
   return false;
 }
 
