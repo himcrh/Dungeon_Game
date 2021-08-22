@@ -10,7 +10,6 @@ IMAGE img_wall;
 IMAGE img_monsters[7];
 IMAGE img_heart,img_peach;
 IMAGE img_cloud[5];
-
 IMAGE img_hero[5],img_bighero;
 IMAGE img_startmenu;
 IMAGE img_magiccircle;

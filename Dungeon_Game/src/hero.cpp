@@ -1,7 +1,7 @@
 #include "hero.h"
 #include"global.h"
 
-bool is_Forbidden(int x, int y,int dir) {
+bool is_Forbidden(int x, int y) {
 
   if (x < 0 || y < 0 || x>400 || y>400) return 0;
   //dir up - 1; down - 2; left - 3; right - 4;
@@ -12,8 +12,8 @@ bool is_Forbidden(int x, int y,int dir) {
   if (x % 40 == 0) {
     if (map[Hero.stair][dx][dy] != 1 && map[Hero.stair][dx][dy + 1] != 1) {
       //这两个不是墙
-      if (vs_cmp(map[Hero.stair][dx][dy]) &&
-          vs_cmp(map[Hero.stair][dx][dy + 1])) {
+      if (vs_cmp(map[Hero.stair][dx][dy],dx,dy) &&
+          vs_cmp(map[Hero.stair][dx][dy + 1], dx, dy+1)) {
         return 1;
       }
     }
@@ -21,8 +21,8 @@ bool is_Forbidden(int x, int y,int dir) {
   }
   if (y % 40 == 0) {
     if (map[Hero.stair][dx][dy] != 1 && map[Hero.stair][dx + 1][dy] != 1) {
-      if (vs_cmp(map[Hero.stair][dx][dy]) &&
-          vs_cmp(map[Hero.stair][dx + 1][dy])) {
+      if (vs_cmp(map[Hero.stair][dx][dy], dx, dy) &&
+          vs_cmp(map[Hero.stair][dx + 1][dy], dx+1, dy)) {
         return 1;
       }
     }
@@ -49,25 +49,25 @@ void hero_move() {
           //up
         case 72:
           Hero.dir = 1;
-          if (is_Forbidden(Hero.position_x, Hero.position_y - 10,1))
+          if (is_Forbidden(Hero.position_x, Hero.position_y - 10))
               Hero.position_y -= 10;
           break;
           //down
-      case 80:
+        case 80:
           Hero.dir = 2;
-          if (is_Forbidden(Hero.position_x, Hero.position_y + 10,2))
+          if (is_Forbidden(Hero.position_x, Hero.position_y + 10))
               Hero.position_y += 10;
           break;
           //left
-      case 75:
+        case 75:
           Hero.dir = 3;
-          if (is_Forbidden(Hero.position_x - 10, Hero.position_y,3))
+          if (is_Forbidden(Hero.position_x - 10, Hero.position_y))
               Hero.position_x -= 10;
           break;
           //right
-      case 77:
+        case 77:
           Hero.dir = 4;
-          if (is_Forbidden(Hero.position_x + 10, Hero.position_y,4))
+          if (is_Forbidden(Hero.position_x + 10, Hero.position_y))
               Hero.position_x += 10;
           break;
       }

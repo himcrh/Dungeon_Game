@@ -1,5 +1,4 @@
 #include "scene_draw.h"
-
 void draw_backgraund(void) {
   //±³¾°»æÍ¼
   for (int i = 0; i <= 10; i++) {
@@ -8,7 +7,29 @@ void draw_backgraund(void) {
     }
   }
 }
-
+void draw_nomonster(int x) {
+    drawAlpha(Width * 0.52, High * 0.2, &img_monsters[x]);
+    settextcolor(RED);
+    settextstyle(30, 0, _T("Helvetica"));
+    outtextxy(Width * 0.76, High * 0.2, _T("RUN,MY BOY!!!"));
+}
+void draw_monster(int x, Monster cur_M) {
+    drawAlpha(Width * 0.52, High * 0.2,&img_monsters[x]);
+    settextcolor(WHITE);
+    settextstyle(30, 0, _T("Helvetica"));
+    TCHAR s[10];
+    outtextxy(Width * 0.76, High * 0.1, _T("HP:"));
+    _stprintf_s(s, _T("%d"), cur_M.HP);
+    if (cur_M.HP < 100) settextcolor(RED);
+    outtextxy(Width * 0.82, High * 0.1, s);
+    settextcolor(WHITE);
+    outtextxy(Width * 0.76, High * 0.2, _T("ATT:"));
+    _stprintf_s(s, _T("%d"), cur_M.attack);
+    outtextxy(Width * 0.84, High * 0.2, s);
+    outtextxy(Width * 0.76, High * 0.3, _T("EXP:"));
+    _stprintf_s(s, _T("%d"), cur_M.EXP);
+    outtextxy(Width * 0.84, High * 0.3, s);
+}
 void draw_information(void) {
     for (int i = 11; i <= 21; i++) {
         for (int j = 0; j <= 10; j++) {
