@@ -13,7 +13,7 @@ IMAGE img_cloud[5];
 
 IMAGE img_hero[5],img_bighero;
 IMAGE img_startmenu;
-
+IMAGE img_magiccircle;
 void start_initial(void);  //初始化，加载文件
 void start_menu(void);
 void show(void);
@@ -55,6 +55,7 @@ void start_initial() {
   loadimage(&img_cloud[3], _T("images\\cloud_3.png"));
   loadimage(&img_startmenu, _T("images\\startmenu.png"));
   loadimage(&img_bighero, _T("images\\BigLink.png"));
+  loadimage(&img_magiccircle, _T("images\\magiccircle.png"));
   BeginBatchDraw();
   while (gamestatus == 0)  start_menu();
 }
@@ -66,15 +67,12 @@ void gameover() {
 }
 
 void show() {
-
-
   draw_backgraund();
   draw_information();
   draw_fixobject();
   draw_unfixobject();
   hero_move();
   drawAlpha(Hero.position_x, Hero.position_y, &img_hero[Hero.dir]);
-
   Sleep(2);
   FlushBatchDraw();
 }

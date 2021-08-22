@@ -28,6 +28,7 @@ extern IMAGE img_wall;
 extern IMAGE img_monsters[7];
 extern IMAGE img_heart, img_peach;
 extern IMAGE img_startmenu;
+extern IMAGE img_magiccircle;
 extern IMAGE img_hero[5],img_bighero;
 extern IMAGE img_cloud[5];
 #endif  // !Global
