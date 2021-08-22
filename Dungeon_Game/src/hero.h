@@ -7,7 +7,6 @@ struct HERO {
 	int position_x, position_y;
 	int HP;
 	int attack;
-	int defence;
 	int EXP;
     int stair;//当前所处层数
 	int Level;

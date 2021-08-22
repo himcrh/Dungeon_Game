@@ -25,5 +25,6 @@ extern IMAGE img_test;
 extern IMAGE img_floor;
 extern IMAGE img_wall;
 extern IMAGE img_monsters[7];
-extern IMAGE img_hero;
+extern IMAGE img_hero,img_bighero;
+extern IMAGE img_cloud[5];
 #endif  // !Global
