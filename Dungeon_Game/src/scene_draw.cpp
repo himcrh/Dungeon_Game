@@ -14,7 +14,7 @@ void draw_fixobject(void) {
   for (int i = 0; i <= 10; i++) {
     for (int j = 0; j <= 10; j++) {
       if (map[Hero.stair][i][j] == 1)
-        drawAlpha(j*Unit, i*Unit, &img_wall);
+        drawAlpha(i*Unit, j*Unit, &img_wall);
     }
   }
 }

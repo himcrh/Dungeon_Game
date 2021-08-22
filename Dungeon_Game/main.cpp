@@ -34,7 +34,7 @@ void start_initial() {
   for (int i = 1; i <= n; i++) {
     for (int j = 0; j <= 10; j++) {
       for (int k = 0; k <= 10; k++) {
-        scanf_s("%d", &map[i][j][k]);
+        scanf_s("%d", &map[i][k][j]);
       }
     }
   }
@@ -73,7 +73,7 @@ void show() {
   draw_fixobject();
 
   hero_move();
-  drawAlpha(Hero.position_x*40, Hero.position_y*40, &img_hero);
+  drawAlpha(Hero.position_x, Hero.position_y, &img_hero);
   Sleep(2);
   FlushBatchDraw();
 

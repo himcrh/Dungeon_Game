@@ -2,8 +2,21 @@
 #include"global.h"
 
 bool is_Forbidden(int x, int y) {
-  if (map[1][x][y] == 0)
+  int dx = x / 40;
+  int dy = y / 40;
+  if (x % 40 == 0) {
+    if (map[Hero.stair][dx][dy] != 1 && map[Hero.stair][dx][dy + 1] != 1)
+      return 1;
+  }
+  if (y % 40 == 0) {
+    if (map[Hero.stair][dx][dy] != 1 && map[Hero.stair][dx+1][dy] != 1)
+      return 1;
+  }
+  if (map[Hero.stair][dx][dy] != 1 && map[Hero.stair][dx][dy + 1] != 1 &&
+      map[Hero.stair][dx + 1][dy] != 1 &&
+      map[Hero.stair][dx + 1][dy + 1] != 1) {
     return 1;
+  }
   return 0;
 }
 
@@ -12,23 +25,23 @@ void hero_move() {
     switch (_getch()) {
 	  //up
       case 72:
-        if (is_Forbidden((int)Hero.position_x, (int)Hero.position_y - 1))
-          Hero.position_y -= 0.25;
+        if (is_Forbidden(Hero.position_x, Hero.position_y - 10))
+          Hero.position_y -= 10;
         break;
 	  //down
       case 80:
-        if (is_Forbidden((int) Hero.position_x, (int)Hero.position_y + 1))
-          Hero.position_y += 0.25;
+        if (is_Forbidden(Hero.position_x,Hero.position_y + 10))
+          Hero.position_y += 10;
         break;
 	  //left
       case 75:
-        if (is_Forbidden((int) Hero.position_x - 1, (int)Hero.position_y))
-          Hero.position_x -= 0.25;
+        if (is_Forbidden( Hero.position_x - 10, Hero.position_y))
+          Hero.position_x -= 10;
         break;
 	  //right
       case 77:
-        if (is_Forbidden((int) Hero.position_x + 1, (int)Hero.position_y))
-          Hero.position_x += 0.25;
+        if (is_Forbidden( Hero.position_x + 10, Hero.position_y))
+          Hero.position_x += 10;
         break;
     }
   }
