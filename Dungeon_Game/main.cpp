@@ -1,21 +1,8 @@
-#include<graphics.h>
-#include<Windows.h>
-#include<conio.h>
-#include<stdio.h>
-#include<time.h>
-#include<iostream>
-#include<stdlib.h>
-#include<fstream>
-#include"src/easy_draw.h"
-#include"src/hero.h"
 #include"src/global.h"
 #pragma comment(lib, "winmm.lib")
 using namespace std;
-#define High 440
-#define Width 880
-#define Unit 40
+
 int map[10][13][13];
-int canvas[440][440];
 IMAGE img_background;
 IMAGE img_test;
 IMAGE img_floor;
@@ -23,6 +10,7 @@ IMAGE img_wall;
 IMAGE img_monster_1, img_monster_2, img_monster_3, img_monster_4, img_monster_5,img_monster_6;
 IMAGE img_heart,img_peach;
 IMAGE img_cloud_1,img_cloud_2,img_cloud_3;
+IMAGE img_hero;
 void test(void); //测试用
 void start_initial(void);  //初始化，加载文件
 void show(void);
@@ -55,10 +43,13 @@ void start_initial() {
   fclose(stdin);
   freopen("CON", "r", stdin);
 
+  Hero.stair = 1;
+
   initgraph(Width, High);
   setbkmode(TRANSPARENT);
   loadimage(&img_floor, _T("images\\floor.png"));
   loadimage(&img_wall, _T("images\\wall.png"));
+  loadimage(&img_hero, _T("images\\naruto.png"));
   loadimage(&img_monster_1, _T("images\\monster_1.png"));
   loadimage(&img_monster_2, _T("images\\monster_2.png"));
   loadimage(&img_monster_3, _T("images\\monster_3.png"));
@@ -85,38 +76,13 @@ void gameover() {
 
 void show() {
 
-  //背景绘图
-  for (int i = 0; i <= 10; i++) {
-    for (int j = 0; j <= 10; j++) {
-      switch (map[1][j][i]) {
-        case 0:
-          drawAlpha(j * 40, i * 40, &img_floor);
-          break;
-        case 1:
-          drawAlpha(j * 40, i * 40, &img_wall);
-          for (int k = i * 40; k < (i + 1) * 40; k++) {
-              for (int m = j * 40; m < (j + 1) * 40; m++) {
-                  canvas[m][k] = 1;
-              }
-          }
-          break;
-        case 2:
-          drawAlpha(j * 40, i * 40, &img_wall);
-          break;
-        case 3:
-          drawAlpha(j * 40, i * 40, &img_wall);
-          break;
-        case 4:
-          drawAlpha(j * 40, i * 40, &img_wall);
-          break;
-        case 5:
-          drawAlpha(j * 40, i * 40, &img_wall);
-          break;
-      }
-    }
-  }
+
+  draw_backgraund();
+  draw_fixobject();
+
   hero_move();
-  drawAlpha(Hero.position_x, Hero.position_y, &img_monster_6);
+  drawAlpha(Hero.position_x, Hero.position_y, &img_hero);
+
   Sleep(2);
   FlushBatchDraw();
 
