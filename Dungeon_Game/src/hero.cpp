@@ -2,7 +2,7 @@
 #include"global.h"
 
 bool is_Forbidden(int x, int y) {
-
+  show_monster.first = false;
   if (x < 0 || y < 0 || x>400 || y>400) return 0;
   //dir up - 1; down - 2; left - 3; right - 4;
   int dx = x / 40;

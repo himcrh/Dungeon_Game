@@ -14,7 +14,7 @@ IMAGE img_hero[5],img_bighero;
 IMAGE img_startmenu;
 IMAGE img_circle_up;
 IMAGE img_circle_down;
-
+pair<bool, Monster> show_monster;
 void start_initial(void);  //初始化，加载文件
 void start_menu(void);
 void show(void);
@@ -76,6 +76,10 @@ void show() {
   draw_fixobject();
   draw_unfixobject();
   hero_move();
+  if (show_monster.first) {
+    draw_nomonster(show_monster.second.id);
+    draw_monster(show_monster.second.id, show_monster.second);
+  }
   drawAlpha(Hero.position_x, Hero.position_y, &img_hero[Hero.dir]);
   Sleep(2);
   FlushBatchDraw();

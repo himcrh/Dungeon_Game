@@ -17,10 +17,9 @@ bool vs_cmp(int cur_monster,int x,int y) {
     battle_details(cur_monster,x,y);
     return true;
   }
-  //ª·…¡
-  Monster cur_M = Monsters[cur_monster];
-  draw_nomonster(cur_monster);
-  draw_monster(cur_monster, cur_M);
+  
+  show_monster.second = Monsters[cur_monster];
+  show_monster.first = true;
   return false;
 }
 

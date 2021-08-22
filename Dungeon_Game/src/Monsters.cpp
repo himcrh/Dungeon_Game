@@ -9,8 +9,11 @@ void load_Monster(void) {
   freopen("Monster_file.txt", "r", stdin);
   int n;
   scanf_s("%d", &n);
-  for (int i = 1; i <= n; i++)
+  for (int i = 1; i <= n; i++) {
+    Monsters[i].id = i;
     scanf_s("%d %d %d %d", &Monsters[i].HP, &Monsters[i].attack, &Monsters[i].EXP,&Monsters[i].money);
+  }
+    
   fclose(stdin);
   freopen("CON", "r", stdin);
 }
