@@ -5,6 +5,7 @@
 struct Monster {
   int HP;
   int attack;
+  int money;
   int EXP;
 };
 void load_Monster(void);

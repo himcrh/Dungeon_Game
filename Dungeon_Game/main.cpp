@@ -31,8 +31,8 @@ int main() {
 
 void start_initial() {
   srand(time(NULL));//随机时间种子
+  hero_initial();//英雄初始化
   load_map();//载入地图信息
-  Hero.stair = 1;
   load_Monster();//载入monster信息
 
   initgraph(Width, High);
@@ -54,29 +54,9 @@ void start_initial() {
   loadimage(&img_cloud_3, _T("images\\cloud_3.png"));
   loadimage(&img_startmenu, _T("images\\startmenu.png"));
   BeginBatchDraw();
-  while (gamestatus == 0) {
-      start_menu();
-  }
+  while (gamestatus == 0)  start_menu();
 }
 
-void start_menu() {
-    drawAlpha(0, 0, &img_startmenu);
-    setbkmode(TRANSPARENT);
-    settextcolor(BLACK);
-    settextstyle(30, 0, _T("黑体"));
-    outtextxy(Width * 0.35, High * 6 / 8, _T("1 ENTER THE GAME"));
-    outtextxy(Width * 0.35, High * 6.8 / 8, _T("2 QUIT"));
-    FlushBatchDraw();
-    Sleep(2);
-    if (_kbhit()) {
-        char input = _getch();
-        if (input == '1') gamestatus = 1;
-        else if (input == '2') {
-            gamestatus = 2;
-            exit(0);
-        }
-    }
-}
 
 void gameover() {
     EndBatchDraw();
@@ -84,7 +64,6 @@ void gameover() {
 }
 
 void show() {
-
 
   draw_backgraund();
   draw_fixobject();

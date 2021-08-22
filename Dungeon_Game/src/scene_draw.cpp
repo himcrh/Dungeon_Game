@@ -46,3 +46,23 @@ void load_map(void) {
   fclose(stdin);
   freopen("CON", "r", stdin);
 }
+
+void start_menu() {
+  drawAlpha(0, 0, &img_startmenu);
+  setbkmode(TRANSPARENT);
+  settextcolor(BLACK);
+  settextstyle(30, 0, _T("ºÚÌå"));
+  outtextxy(Width * 0.35, High * 6 / 8, _T("1 ENTER THE GAME"));
+  outtextxy(Width * 0.35, High * 6.8 / 8, _T("2 QUIT"));
+  FlushBatchDraw();
+  Sleep(2);
+  if (_kbhit()) {
+    char input = _getch();
+    if (input == '1')
+      gamestatus = 1;
+    else if (input == '2') {
+      gamestatus = 2;
+      exit(0);
+    }
+  }
+}
