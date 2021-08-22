@@ -32,7 +32,7 @@ void battle_details(int cur_monster,int x,int y) {
       Hero.HP -= cur_M.attack;
     draw_backgraund();
     draw_information();
-    draw_monster(cur_monster, cur_M);
+    draw_monster(cur_M);
     draw_fixobject();
     draw_unfixobject();
     drawAlpha(Hero.position_x, Hero.position_y, &img_hero[Hero.dir]);

@@ -7,12 +7,13 @@ void draw_backgraund(void) {
     }
   }
 }
-void draw_nomonster(int x) {
+void draw_nomonster(void) {
     settextcolor(RED);
     settextstyle(30, 0, _T("Helvetica"));
     outtextxy(Width * 0.76, High * 0.1, _T("RUN,MY BOY!!!"));
 }
-void draw_monster(int x, Monster cur_M) {
+void draw_monster(Monster cur_M) {
+    int x = cur_M.id;
     drawAlpha(Width * 0.56, High * 0.3,&img_monsters[x]);
     settextcolor(WHITE);
     settextstyle(30, 0, _T("Helvetica"));

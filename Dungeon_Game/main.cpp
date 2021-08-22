@@ -77,8 +77,8 @@ void show() {
   draw_unfixobject();
   hero_move();
   if (show_monster.first) {
-    draw_nomonster(show_monster.second.id);
-    draw_monster(show_monster.second.id, show_monster.second);
+    draw_nomonster();
+    draw_monster(show_monster.second);
   }
   drawAlpha(Hero.position_x, Hero.position_y, &img_hero[Hero.dir]);
   Sleep(2);
