@@ -28,6 +28,7 @@ Monster Monsters[7];
 int main() {
   start_initial();
   while (gamestatus) {
+    while (gamestatus == 2) pause_menu();
     show();
     update_with_input();
   }
@@ -39,7 +40,6 @@ void start_initial() {
   hero_initial();//英雄初始化
   load_map();//载入地图信息
   load_Monster();//载入monster信息
-  read_info();
   initgraph(Width, High);
   setbkmode(TRANSPARENT);
   loadimage(&img_floor, _T("images\\floor.png"));
@@ -77,11 +77,6 @@ void gameover() {
 
 void show() {
   //判断是否暂停
-  if (gamestatus == 2) {
-      save_info();//暂停自动存档，测试用，一会删
-      pause_menu();
-  }
-   else {
        draw_backgraund();
        draw_fixobject();
        draw_unfixobject();
@@ -91,7 +86,6 @@ void show() {
            draw_monster(show_monster.second);
        }
        drawAlpha(Hero.position_x, Hero.position_y, &img_hero[Hero.dir]);
-   }
   Sleep(2);
   FlushBatchDraw();
 }

@@ -16,6 +16,10 @@ void start_menu() {
         char input = _getch();
         if (input == '1')
             gamestatus = 1;
+        else if (input == '2') {
+            read_info();
+            gamestatus = 1;
+        }
         else if (input == '3') {
             exit(0);
         }
@@ -28,12 +32,25 @@ void pause_menu() {
     settextcolor(BLACK);
     settextstyle(30, 0, _T("黑体"));
     settextcolor(BLUE);
-    outtextxy(Width * 0.35, High * 5.2 / 8, _T("1 ENTER THE GAME"));
+    outtextxy(Width * 0.35, High * 5.2 / 8, _T("ESC ENTER THE GAME"));
     settextcolor(BROWN);
     outtextxy(Width * 0.35, High * 6 / 8, _T("2 SAVE"));
     settextcolor(MAGENTA);    
     outtextxy(Width * 0.35, High * 6.8 / 8, _T("3 QUIT"));
+    FlushBatchDraw();
     Sleep(2);
+    while (_kbhit()) {
+        switch (_getch()) {
+        case 27:
+            gamestatus = 1;
+            break;
+        case '2':
+            save_info();
+            break;
+        case '3':
+            exit(0);
+        }
+    }
 }
 //加载全部地图
 void load_map(void) {
