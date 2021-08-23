@@ -46,6 +46,9 @@ void pause_menu() {
             break;
         case '2':
             save_info();
+            drawAlpha(0, 0, &img_saved);
+            FlushBatchDraw();
+            Sleep(1000);
             break;
         case '3':
           gameover();
