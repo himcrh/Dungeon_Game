@@ -15,6 +15,7 @@ IMAGE img_startmenu;
 IMAGE img_circle_up;
 IMAGE img_circle_down;
 IMAGE img_sword;
+IMAGE img_pausemenu;
 pair<bool, Monster> show_monster;
 void start_initial(void);  //初始化，加载文件
 void start_menu(void);
@@ -62,7 +63,7 @@ void start_initial() {
 
   loadimage(&img_circle_up, _T("images\\circle_up.png"));
   loadimage(&img_circle_down, _T("images\\circle_down.png"));
-  
+  loadimage(&img_pausemenu, _T("images\\pausemenu.png"));
   BeginBatchDraw();
   while (gamestatus == 0)  start_menu();
 }
