@@ -80,6 +80,11 @@ void hero_move() {
         case 32:
             hero_transfer(Hero.position_x, Hero.position_y);
             break;
+            //pause(ÔÝÍ£)
+        case 27:
+            if (gamestatus == 1) gamestatus = 2;
+            else gamestatus = 1;
+            break;
         }
     }
 

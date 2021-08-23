@@ -27,6 +27,7 @@ int main() {
   start_initial();
   while (gamestatus) {
     show();
+    hero_move();
   }
   return 0;
 }
@@ -73,16 +74,21 @@ void gameover() {
 }
 
 void show() {
-  draw_backgraund();
-  draw_fixobject();
-  draw_unfixobject();
-  draw_information();
-  hero_move();
-  if (show_monster.first) {
-    draw_nomonster();
-    draw_monster(show_monster.second);
+  //≈–∂œ «∑Ò‘›Õ£
+  if (gamestatus == 2) {
+      pause_menu();
   }
-  drawAlpha(Hero.position_x, Hero.position_y, &img_hero[Hero.dir]);
+   else {
+       draw_backgraund();
+       draw_fixobject();
+       draw_unfixobject();
+       draw_information();
+       if (show_monster.first) {
+           draw_nomonster();
+           draw_monster(show_monster.second);
+       }
+       drawAlpha(Hero.position_x, Hero.position_y, &img_hero[Hero.dir]);
+   }
   Sleep(2);
   FlushBatchDraw();
 }
