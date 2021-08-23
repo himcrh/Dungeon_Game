@@ -35,6 +35,7 @@ extern IMAGE img_cloud[5];
 extern IMAGE img_circle_up;
 extern IMAGE img_circle_down;
 extern IMAGE img_sword;
+extern IMAGE img_pausemenu;
 extern pair<bool, Monster> show_monster;
 extern int cnt_map;//µØÍ¼²ãÊý
 #endif  // !Global

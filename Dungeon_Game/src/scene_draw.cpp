@@ -3,29 +3,36 @@
 void start_menu() {
     drawAlpha(0, 0, &img_startmenu);
     setbkmode(TRANSPARENT);
-    settextcolor(BLACK);
     settextstyle(30, 0, _T("黑体"));
-    outtextxy(Width * 0.35, High * 6 / 8, _T("1 ENTER THE GAME"));
-    outtextxy(Width * 0.35, High * 6.8 / 8, _T("2 QUIT"));
+    settextcolor(BLUE);
+    outtextxy(Width * 0.35, High * 5.2 / 8, _T("1 ENTER THE GAME"));
+    settextcolor(CYAN);
+    outtextxy(Width * 0.35, High * 6 / 8, _T("2 READ THE SAVE"));
+    settextcolor(MAGENTA);
+    outtextxy(Width * 0.35, High * 6.8 / 8, _T("3 QUIT"));
     FlushBatchDraw();
     Sleep(2);
     if (_kbhit()) {
         char input = _getch();
         if (input == '1')
             gamestatus = 1;
-        else if (input == '2') {
+        else if (input == '3') {
             exit(0);
         }
     }
 }
 //暂停界面绘制
 void pause_menu() {
-    drawAlpha(0, 0, &img_startmenu);
+    drawAlpha(0, 0, &img_pausemenu);
     setbkmode(TRANSPARENT);
     settextcolor(BLACK);
     settextstyle(30, 0, _T("黑体"));
-    outtextxy(Width * 0.35, High * 6 / 8, _T("1 ENTER THE GAME"));
-    outtextxy(Width * 0.35, High * 6.8 / 8, _T("2 QUIT"));
+    settextcolor(BLUE);
+    outtextxy(Width * 0.35, High * 5.2 / 8, _T("1 ENTER THE GAME"));
+    settextcolor(BROWN);
+    outtextxy(Width * 0.35, High * 6 / 8, _T("2 SAVE"));
+    settextcolor(MAGENTA);    
+    outtextxy(Width * 0.35, High * 6.8 / 8, _T("3 QUIT"));
     Sleep(2);
 }
 //加载全部地图
