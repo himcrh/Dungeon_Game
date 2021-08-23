@@ -69,12 +69,6 @@ void start_initial() {
   while (gamestatus == 0)  start_menu();
 }
 
-
-void gameover() {
-    EndBatchDraw();
-    closegraph();
-}
-
 void show() {
   //≈–∂œ «∑Ò‘›Õ£
        draw_backgraund();

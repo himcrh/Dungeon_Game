@@ -21,7 +21,7 @@ void start_menu() {
             gamestatus = 1;
         }
         else if (input == '3') {
-            exit(0);
+          gameover();
         }
     }
 }
@@ -48,7 +48,7 @@ void pause_menu() {
             save_info();
             break;
         case '3':
-            exit(0);
+          gameover();
         }
     }
 }
@@ -175,3 +175,8 @@ void draw_information(void) {
     drawAlpha(Width * 0.7,High * 0.57, &img_bighero);
 }
 
+void gameover() {
+  EndBatchDraw();
+  closegraph();
+  exit(0);
+}

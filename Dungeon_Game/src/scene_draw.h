@@ -10,4 +10,5 @@ void draw_monster(struct Monster cur_M);
 void load_map(void);
 void start_menu(void);
 void pause_menu(void);
+void gameover(void);
 #endif
