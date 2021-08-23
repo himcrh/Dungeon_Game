@@ -1,6 +1,7 @@
 #include"src/global.h"
 #pragma comment(lib, "winmm.lib")
 
+int cnt_map;
 int map[10][13][13];
 int gamestatus;
 IMAGE img_background;
@@ -17,8 +18,8 @@ IMAGE img_circle_down;
 IMAGE img_sword;
 pair<bool, Monster> show_monster;
 void start_initial(void);  //初始化，加载文件
-void start_menu(void);
 void show(void);
+void update_with_input(void);
 HERO Hero;
 Monster Monsters[7];
 
@@ -27,7 +28,7 @@ int main() {
   start_initial();
   while (gamestatus) {
     show();
-    hero_move();
+    update_with_input();
   }
   return 0;
 }
@@ -37,7 +38,7 @@ void start_initial() {
   hero_initial();//英雄初始化
   load_map();//载入地图信息
   load_Monster();//载入monster信息
-
+  read_info();
   initgraph(Width, High);
   setbkmode(TRANSPARENT);
   loadimage(&img_floor, _T("images\\floor.png"));
@@ -76,6 +77,7 @@ void gameover() {
 void show() {
   //判断是否暂停
   if (gamestatus == 2) {
+      save_info();//暂停自动存档，测试用，一会删
       pause_menu();
   }
    else {
@@ -91,4 +93,8 @@ void show() {
    }
   Sleep(2);
   FlushBatchDraw();
+}
+
+void update_with_input(void) {
+  hero_move();
 }

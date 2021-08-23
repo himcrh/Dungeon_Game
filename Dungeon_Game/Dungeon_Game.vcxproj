@@ -23,6 +23,7 @@
     <ClCompile Include="src\battle.cpp" />
     <ClCompile Include="src\easy_draw.cpp" />
     <ClCompile Include="src\hero.cpp" />
+    <ClCompile Include="src\info_load.cpp" />
     <ClCompile Include="src\Monsters.cpp" />
     <ClCompile Include="src\scene_draw.cpp" />
   </ItemGroup>
@@ -31,10 +32,12 @@
     <ClInclude Include="src\easy_draw.h" />
     <ClInclude Include="src\global.h" />
     <ClInclude Include="src\hero.h" />
+    <ClInclude Include="src\info_load.h" />
     <ClInclude Include="src\Monsters.h" />
     <ClInclude Include="src\scene_draw.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="data.txt" />
     <Text Include="Map_file.txt" />
     <Text Include="Monster_file.txt" />
     <Text Include="setting.txt" />

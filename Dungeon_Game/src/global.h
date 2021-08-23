@@ -13,6 +13,7 @@
 #include"scene_draw.h"
 #include"Monsters.h"
 #include"battle.h"
+#include"info_load.h"
 using namespace std;
 #define High 440
 #define Width 880
@@ -35,4 +36,5 @@ extern IMAGE img_circle_up;
 extern IMAGE img_circle_down;
 extern IMAGE img_sword;
 extern pair<bool, Monster> show_monster;
+extern int cnt_map;//µØÍ¼²ãÊý
 #endif  // !Global

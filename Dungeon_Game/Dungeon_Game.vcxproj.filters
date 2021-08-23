@@ -33,6 +33,9 @@
     <ClCompile Include="src\battle.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\info_load.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\easy_draw.h">
@@ -53,10 +56,14 @@
     <ClInclude Include="src\battle.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="src\info_load.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Map_file.txt" />
     <Text Include="Monster_file.txt" />
     <Text Include="setting.txt" />
+    <Text Include="data.txt" />
   </ItemGroup>
 </Project>

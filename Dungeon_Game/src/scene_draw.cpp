@@ -35,8 +35,8 @@ void load_map(void) {
     if (!Map_file)
         return;
     freopen("Map_file.txt", "r", stdin);
-    int n;
-    scanf_s("%d", &n);
+    scanf_s("%d", &cnt_map);
+    int n = cnt_map;
     for (int i = 1; i <= n; i++) {
         for (int j = 0; j <= 10; j++) {
             for (int k = 0; k <= 10; k++) {
