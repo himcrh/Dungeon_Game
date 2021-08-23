@@ -1,6 +1,19 @@
 #include "hero.h"
 #include"global.h"
+//英雄信息初始化
+void hero_initial(void) {
+    Hero.HP = 500;
+    Hero.attack = 50;
+    Hero.stair = 1;
+    Hero.Level = 1;
+    Hero.dir = 4;
+    Hero.sword = 1;
+    Hero.item_yellow = 1;
+    Hero.item_blue = 1;
+    Hero.item_red = 1;
+}
 
+//计算是否能过够通过
 bool is_Forbidden(int x, int y) {
   show_monster.first = false;
   if (x < 0 || y < 0 || x>400 || y>400) return 0;
@@ -35,6 +48,44 @@ bool is_Forbidden(int x, int y) {
   return 0;
 }
 
+//英雄移动
+void hero_move() {
+    if (_kbhit()) {
+        switch (_getch()) {
+            //up
+        case 72:
+            Hero.dir = 1;
+            if (is_Forbidden(Hero.position_x, Hero.position_y - 10))
+                Hero.position_y -= 10;
+            break;
+            //down
+        case 80:
+            Hero.dir = 2;
+            if (is_Forbidden(Hero.position_x, Hero.position_y + 10))
+                Hero.position_y += 10;
+            break;
+            //left
+        case 75:
+            Hero.dir = 3;
+            if (is_Forbidden(Hero.position_x - 10, Hero.position_y))
+                Hero.position_x -= 10;
+            break;
+            //right
+        case 77:
+            Hero.dir = 4;
+            if (is_Forbidden(Hero.position_x + 10, Hero.position_y))
+                Hero.position_x += 10;
+            break;
+            //space(传送阵)
+        case 32:
+            hero_transfer(Hero.position_x, Hero.position_y);
+            break;
+        }
+    }
+
+}
+
+//传送
 void hero_transfer(int x, int y) {
   if (x % 40 || y % 40)
     return;
@@ -66,47 +117,4 @@ void hero_transfer(int x, int y) {
   }
 }
 
-void hero_initial(void) {
-  Hero.HP = 500;
-  Hero.attack = 50;
-  Hero.stair = 1;
-  Hero.Level = 1;
-  Hero.dir = 4;
-}
 
-
-
-void hero_move() {
-  if (_kbhit()) {
-      switch (_getch()) {
-          //up
-        case 72:
-          Hero.dir = 1;
-          if (is_Forbidden(Hero.position_x, Hero.position_y - 10))
-              Hero.position_y -= 10;
-          break;
-          //down
-        case 80:
-          Hero.dir = 2;
-          if (is_Forbidden(Hero.position_x, Hero.position_y + 10))
-              Hero.position_y += 10;
-          break;
-          //left
-        case 75:
-          Hero.dir = 3;
-          if (is_Forbidden(Hero.position_x - 10, Hero.position_y))
-              Hero.position_x -= 10;
-          break;
-          //right
-        case 77:
-          Hero.dir = 4;
-          if (is_Forbidden(Hero.position_x + 10, Hero.position_y))
-              Hero.position_x += 10;
-          break;
-        case 32:
-          hero_transfer(Hero.position_x, Hero.position_y);
-          break;
-      }
-  }
-
-}

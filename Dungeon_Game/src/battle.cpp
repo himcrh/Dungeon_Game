@@ -1,7 +1,7 @@
 #include"battle.h"
-
+//判断能否打过
 bool vs_cmp(int cur_monster,int x,int y) {
-  if (cur_monster > 90 || cur_monster <= 10)
+  if (cur_monster > 90 || cur_monster <= 10)//不是怪物
     return true;
   cur_monster -= 10;
   int cnt_a; 
@@ -13,16 +13,16 @@ bool vs_cmp(int cur_monster,int x,int y) {
   cnt_b = Hero.HP / Monsters[cur_monster].attack;
   if (Hero.HP % Monsters[cur_monster].attack)
     cnt_b++;
-  if (cnt_a <= cnt_b) {
+  if (cnt_a <= cnt_b) {//能打过
     battle_details(cur_monster,x,y);
     return true;
   }
   
-  show_monster.second = Monsters[cur_monster];
-  show_monster.first = true;
+  show_monster.second = Monsters[cur_monster];//打不过
+  show_monster.first = true;//判断是否打得过
   return false;
 }
-
+//能打过，显示交战细节
 void battle_details(int cur_monster,int x,int y) {
   Monster cur_M = Monsters[cur_monster];
   //提取出一个moster

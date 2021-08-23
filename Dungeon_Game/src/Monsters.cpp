@@ -1,6 +1,7 @@
 #include"Monsters.h"
 #include"global.h"
 
+//加载怪物信息
 void load_Monster(void) {
   fstream Monster_file;
   Monster_file.open("Monster_file.txt", ios::in);

@@ -33,5 +33,6 @@ extern IMAGE img_hero[5],img_bighero;
 extern IMAGE img_cloud[5];
 extern IMAGE img_circle_up;
 extern IMAGE img_circle_down;
+extern IMAGE img_sword;
 extern pair<bool, Monster> show_monster;
 #endif  // !Global
