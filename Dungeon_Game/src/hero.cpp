@@ -119,6 +119,10 @@ void hero_transfer(int x, int y) {
       }
     }
   }
+  //商店传送
+  if (map[Hero.stair][x][y] == 4) {
+    draw_shop();//进入到商店绘制页面
+  }
 }
 
 

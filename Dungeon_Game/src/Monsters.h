@@ -9,5 +9,4 @@ struct Monster {
   int money;
   int EXP;
 };
-void load_Monster(void);
 #endif  // !MONSTERS
