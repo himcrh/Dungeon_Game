@@ -24,7 +24,7 @@ extern HERO Hero;
 extern Monster Monsters[7];
 extern IMAGE img_background;
 extern IMAGE img_test;
-extern IMAGE img_floor;
+extern IMAGE img_floor,img_floor1;
 extern IMAGE img_wall;
 extern IMAGE img_monsters[7];
 extern IMAGE img_heart, img_peach;
@@ -38,12 +38,14 @@ extern IMAGE img_sword;
 extern IMAGE img_pausemenu;
 extern IMAGE img_saved;
 extern IMAGE img_shop;
+extern IMAGE img_shop2;
 extern IMAGE img_shopnpc;
 extern IMAGE img_shoprandom;
 extern IMAGE img_bewar;
 extern IMAGE img_square;
 extern IMAGE img_shopback;
 extern IMAGE img_textfile;
+extern IMAGE img_randombox;
 extern pair<bool, Monster> show_monster;
 extern int cnt_map;//µØÍ¼²ãÊý
 #endif  // !Global

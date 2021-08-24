@@ -123,6 +123,9 @@ void hero_transfer(int x, int y) {
   if (map[Hero.stair][x][y] == 4) {
     draw_shop();//进入到商店绘制页面
   }
+  if (map[Hero.stair][x][y] == 8) {
+      draw_randomshop();//进入随机商店
+  }
 }
 
 

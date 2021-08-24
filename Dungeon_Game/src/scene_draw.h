@@ -11,4 +11,5 @@ void start_menu(void);
 void pause_menu(void);
 void gameover(void);
 void draw_shop(void);//商店绘制，进入商店独立循环
+void draw_randomshop(void);//随机商店
 #endif

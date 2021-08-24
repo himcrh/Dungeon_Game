@@ -87,6 +87,9 @@ void draw_fixobject(void) {
             case 6:
                drawAlpha(i * Unit, j * Unit, &img_heart);
                break;
+            case 8:
+                drawAlpha(i * Unit, j * Unit, &img_shop2);
+                break;
             }
         }
     }
@@ -130,7 +133,7 @@ void draw_monster(Monster cur_M) {
 void draw_information(void) {
     for (int i = 11; i <= 21; i++) {
         for (int j = 0; j <= 10; j++) {
-            drawAlpha(i * Unit, j * Unit, &img_floor);
+            drawAlpha(i * Unit, j * Unit, &img_floor1);
         }
     }
     TCHAR s[10];
@@ -253,5 +256,65 @@ void draw_shop(void) {
             }
             drawAlpha(0.52 * Width, cur * 50, &img_square);
             FlushBatchDraw();
+    }
+}
+
+void draw_randomshop() {
+    int cur = 1;//光标的位置(默认)
+    int w_flag = 1;
+    int canafford = 1;
+    while (w_flag) {
+        draw_information();
+        drawAlpha(0.52 * Width, 75, &img_randombox);
+        drawAlpha(0.52 * Width, 125, &img_shopback);
+        drawAlpha(0.64 * Width, 10, &img_textfile);
+        settextcolor(BLACK);
+        if (cur == 1) {
+
+            if (canafford) {
+                settextstyle(20, 0, _T("Helvetica"));
+                outtextxy(0.66 * Width, 20, _T("GOOD LUCK!"));
+                setcolor(BLUE);
+                outtextxy(0.66 * Width, 48, _T("50"));
+                setcolor(RED);
+                outtextxy(0.70 * Width, 48, _T("FOR ONE TRY"));
+
+            }
+            else {
+                settextstyle(20, 0, _T("黑体"));
+                outtextxy(0.67 * Width, 22, _T("CAN'T AFFORD,BYE!!!"));
+            }
+        }
+        else {
+            settextstyle(40, 0, _T("黑体"));
+            outtextxy(0.71 * Width, 22, _T("Leave?"));
+        }
+        drawAlpha(0.89 * Width, 0.16 * High, &img_shoprandom);
+        if (_kbhit()) {
+            switch (_getch()) {
+            case 72:
+                cur--;
+                if (cur == 0) cur = 2;
+                break;
+            case 80:
+                cur++;
+                if (cur > 2) cur -= 2;
+                break;
+            case 32:
+                if (cur == 2) w_flag = 0;
+                if (cur == 1) {
+                    if (Hero.money >= 75) {
+                        Hero.money -= 75;
+                        Hero.HP += 50 * (rand() % 2);
+                    }
+                    else canafford = 0;
+                }
+                break;
+            }
+
+        }
+    
+    drawAlpha(0.52 * Width, cur * 50+25, &img_square);
+    FlushBatchDraw();
     }
 }
