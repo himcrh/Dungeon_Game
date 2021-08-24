@@ -1,8 +1,20 @@
 #include"battle.h"
 //判断能否打过
 bool vs_cmp(int cur_monster,int x,int y) {
-  if (cur_monster > 90 || cur_monster <= 10)//不是怪物
+  //不是怪物，是道具或其他
+  if (cur_monster > 90 || cur_monster <= 10) {
+
+    if (cur_monster == 5) {
+      Hero.HP += 50;
+      map[Hero.stair][x][y] = 0;
+    }
+    if (cur_monster == 6) {
+      Hero.HP += 100;
+      map[Hero.stair][x][y] = 0;
+    }
     return true;
+  } 
+    
   cur_monster -= 10;
   int cnt_a; 
   cnt_a = Monsters[cur_monster].HP / Hero.attack;

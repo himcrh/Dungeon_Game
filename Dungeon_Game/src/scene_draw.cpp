@@ -82,8 +82,11 @@ void draw_fixobject(void) {
                 drawAlpha(i * Unit, j * Unit, &img_shop);
                 break;
             case 5:
-                drawAlpha(i * Unit, j * Unit, &img_heart);
+                drawAlpha(i * Unit, j * Unit, &img_peach);
                 break;
+            case 6:
+               drawAlpha(i * Unit, j * Unit, &img_heart);
+               break;
             }
         }
     }
