@@ -184,16 +184,45 @@ void gameover() {
 //商店的绘制
 void draw_shop(void) {
     int cur = 1;//光标的位置(默认)
-    int cur0 = 1;
     int w_flag = 1;
+    int canafford = 1;
     while (w_flag) {
       draw_information();
-        for (cur0 = 1; cur0 <= 3; cur0++) {
-            drawAlpha(0.52 * Width, cur0 * 50, &img_monsters[cur0]);
-        }
-        drawAlpha(0.84 * Width, 0.1 * High, &img_shopnpc);
+      drawAlpha(0.52 * Width, 50, &img_peach);
+      drawAlpha(0.52 * Width, 100, &img_heart);
+      drawAlpha(0.52 * Width, 150, &img_shopback);
+      drawAlpha(0.64 * Width, 10, &img_textfile);
+      settextcolor(BLACK);
+      if (cur < 3) {
+          if (canafford) {
+              settextstyle(20, 0, _T("Helvetica"));
+              outtextxy(0.66 * Width, 20, "Choose this one?");
+              if (cur == 1) {
+                  setcolor(BLUE);
+                  outtextxy(0.66 * Width, 48, "50");
+                  setcolor(RED);
+                  outtextxy(0.70 * Width, 48, "+50HP");
+              }
+              else {
+                  setcolor(BLUE);
+                  outtextxy(0.66 * Width, 48, "100");
+                  setcolor(RED);
+                  outtextxy(0.70 * Width, 48, "+100HP");
+              }
+          }
+          else {
+              settextstyle(40, 0, _T("黑体"));
+              outtextxy(0.71 * Width, 22, "BYE!!");
+          }
+      }
+      else {
+          settextstyle(40, 0, _T("黑体"));
+          outtextxy(0.71 * Width, 22, "Leave?");
+      }
+      //canafford = 1;
+      drawAlpha(0.89 * Width, 0.16 * High, &img_shopnpc);
             if (_kbhit()) {
-                switch (_getch()) {
+                switch (_getch()){
                 case 72:
                     cur--;
                     if (cur == 0) cur = 3;
@@ -204,6 +233,20 @@ void draw_shop(void) {
                     break;
                 case 32:
                     if (cur == 3) w_flag = 0;
+                    if (cur == 1) {
+                        if (Hero.money >= 50) {
+                            Hero.money -= 50;
+                            Hero.HP += 50;
+                        }
+                        else canafford = 0;
+                    }
+                    else {
+                        if (Hero.money >= 100) {
+                            Hero.money -= 100;
+                            Hero.HP += 100;
+                        }
+                        else canafford = 0;
+                    }
                     break;
                 }
             }

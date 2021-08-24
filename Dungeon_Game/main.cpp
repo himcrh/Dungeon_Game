@@ -23,6 +23,8 @@ IMAGE img_shopnpc;
 IMAGE img_shoprandom;
 IMAGE img_bewar;
 IMAGE img_square;
+IMAGE img_shopback;
+IMAGE img_textfile;
 pair<bool, Monster> show_monster;
 void start_initial(void);  //初始化，加载文件
 void show(void);
@@ -76,6 +78,8 @@ void start_initial() {
   loadimage(&img_pausemenu, _T("images\\pausemenu.png"));
   loadimage(&img_bewar, _T("images\\bewar.png"));
   loadimage(&img_square, _T("images\\square.png"));
+  loadimage(&img_shopback, _T("images\\shopback.png"));
+  loadimage(&img_textfile, _T("images\\textfile.png"));
   BeginBatchDraw();
   while (gamestatus == 0)  start_menu();
 }
