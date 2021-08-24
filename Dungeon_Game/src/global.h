@@ -42,6 +42,8 @@ extern IMAGE img_shopnpc;
 extern IMAGE img_shoprandom;
 extern IMAGE img_bewar;
 extern IMAGE img_square;
+extern IMAGE img_shopback;
+extern IMAGE img_textfile;
 extern pair<bool, Monster> show_monster;
 extern int cnt_map;//µØÍ¼²ãÊý
 #endif  // !Global
