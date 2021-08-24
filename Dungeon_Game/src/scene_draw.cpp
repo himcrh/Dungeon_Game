@@ -182,13 +182,14 @@ void gameover() {
 void draw_shop(void) {
     int cur = 1;//光标的位置(默认)
     int cur0 = 1;
-    while (1) {
+    int w_flag = 1;
+    while (w_flag) {
       draw_information();
         for (cur0 = 1; cur0 <= 3; cur0++) {
             drawAlpha(0.52 * Width, cur0 * 50, &img_monsters[cur0]);
         }
         drawAlpha(0.84 * Width, 0.1 * High, &img_shopnpc);
-            while (_kbhit()) {
+            if (_kbhit()) {
                 switch (_getch()) {
                 case 72:
                     cur--;
@@ -199,6 +200,7 @@ void draw_shop(void) {
                     if (cur > 3) cur -= 3;
                     break;
                 case 32:
+                    if (cur == 3) w_flag = 0;
                     break;
                 }
             }
