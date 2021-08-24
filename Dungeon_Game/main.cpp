@@ -18,6 +18,8 @@ IMAGE img_circle_down;
 IMAGE img_sword;
 IMAGE img_pausemenu;
 IMAGE img_saved;
+IMAGE img_shop;
+IMAGE img_bewar;
 pair<bool, Monster> show_monster;
 void start_initial(void);  //初始化，加载文件
 void show(void);
@@ -66,6 +68,7 @@ void start_initial() {
   loadimage(&img_circle_up, _T("images\\circle_up.png"));
   loadimage(&img_circle_down, _T("images\\circle_down.png"));
   loadimage(&img_pausemenu, _T("images\\pausemenu.png"));
+  loadimage(&img_bewar, _T("images\\bewar.png"));
   BeginBatchDraw();
   while (gamestatus == 0)  start_menu();
 }

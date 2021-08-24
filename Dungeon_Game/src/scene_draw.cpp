@@ -125,6 +125,7 @@ void draw_nomonster(void) {
 void draw_monster(Monster cur_M) {
     int x = cur_M.id;
     drawAlpha(Width * 0.56, High * 0.3,&img_monsters[x]);
+    drawAlpha(Width * 0.52, High * 0.1, &img_bewar);
     settextcolor(WHITE);
     settextstyle(30, 0, _T("Helvetica"));
     TCHAR s[10];
