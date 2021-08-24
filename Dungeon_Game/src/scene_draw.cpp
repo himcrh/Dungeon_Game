@@ -196,28 +196,28 @@ void draw_shop(void) {
       if (cur < 3) {
           if (canafford) {
               settextstyle(20, 0, _T("Helvetica"));
-              outtextxy(0.66 * Width, 20, "Choose this one?");
+              outtextxy(0.66 * Width, 20, _T("Choose this one?"));
               if (cur == 1) {
                   setcolor(BLUE);
-                  outtextxy(0.66 * Width, 48, "50");
+                  outtextxy(0.66 * Width, 48, _T("50"));
                   setcolor(RED);
-                  outtextxy(0.70 * Width, 48, "+50HP");
+                  outtextxy(0.70 * Width, 48, _T("+50HP"));
               }
               else {
                   setcolor(BLUE);
-                  outtextxy(0.66 * Width, 48, "100");
+                  outtextxy(0.66 * Width, 48, _T("100"));
                   setcolor(RED);
-                  outtextxy(0.70 * Width, 48, "+100HP");
+                  outtextxy(0.70 * Width, 48, _T("+100HP"));
               }
           }
           else {
               settextstyle(40, 0, _T("ºÚÌå"));
-              outtextxy(0.71 * Width, 22, "BYE!!");
+              outtextxy(0.71 * Width, 22, _T("BYE!!"));
           }
       }
       else {
           settextstyle(40, 0, _T("ºÚÌå"));
-          outtextxy(0.71 * Width, 22, "Leave?");
+          outtextxy(0.71 * Width, 22, _T("Leave?"));
       }
       //canafford = 1;
       drawAlpha(0.89 * Width, 0.16 * High, &img_shopnpc);
