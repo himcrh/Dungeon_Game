@@ -86,12 +86,23 @@ void draw_backgraund(void) {
 void draw_fixobject(void) {
     for (int i = 0; i <= 10; i++) {
         for (int j = 0; j <= 10; j++) {
-            if (map[Hero.stair][i][j] == 1)
+            switch (map[Hero.stair][i][j]) {
+            case 1:
                 drawAlpha(i * Unit, j * Unit, &img_wall);
-            if (map[Hero.stair][i][j] == 2)
+                break;
+            case 2:
                 drawAlpha(i * Unit, j * Unit, &img_circle_down);
-            if (map[Hero.stair][i][j] == 3)
+                break;
+            case 3:
                 drawAlpha(i * Unit, j * Unit, &img_circle_up);
+                break;
+            case 4:
+                drawAlpha(i * Unit, j * Unit, &img_peach);
+                break;
+            case 5:
+                drawAlpha(i * Unit, j * Unit, &img_heart);
+                break;
+            }
         }
     }
 }
