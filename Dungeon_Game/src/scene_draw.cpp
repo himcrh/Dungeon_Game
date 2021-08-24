@@ -55,25 +55,7 @@ void pause_menu() {
         }
     }
 }
-//加载全部地图
-void load_map(void) {
-    fstream Map_file;
-    Map_file.open("Map_file.txt", ios::in);
-    if (!Map_file)
-        return;
-    freopen("Map_file.txt", "r", stdin);
-    scanf_s("%d", &cnt_map);
-    int n = cnt_map;
-    for (int i = 1; i <= n; i++) {
-        for (int j = 0; j <= 10; j++) {
-            for (int k = 0; k <= 10; k++) {
-                scanf_s("%d", &map[i][k][j]);
-            }
-        }
-    }
-    fclose(stdin);
-    freopen("CON", "r", stdin);
-}
+
 //地图背景绘制
 void draw_backgraund(void) {
   for (int i = 0; i <= 10; i++) {
@@ -194,4 +176,32 @@ void gameover() {
   EndBatchDraw();
   closegraph();
   exit(0);
+}
+
+//商店的绘制
+void draw_shop(void) {
+    int cur = 1;//光标的位置(默认)
+    int cur0 = 1;
+    while (1) {
+        for (cur0 = 1; cur0 <= 3; cur0++) {
+            drawAlpha(0.52 * Width, cur0 * 50, &img_monsters[cur0]);
+        }
+        drawAlpha(0.84 * Width, 0.1 * High, &img_shopnpc);
+            while (_kbhit()) {
+                switch (_getch()) {
+                case 72:
+                    cur--;
+                    if (cur == 0) cur = 3;
+                    break;
+                case 80:
+                    cur++;
+                    if (cur > 3) cur -= 3;
+                    break;
+                case 32:
+                    break;
+                }
+            }
+            drawAlpha(0.52 * Width, cur * 50, &img_square);
+            FlushBatchDraw();
+    }
 }

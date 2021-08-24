@@ -42,3 +42,43 @@ bool read_info(void) {
   freopen("CON", "r", stdin);
   return 1;
 }
+
+//加载全部地图
+void load_map(void) {
+  fstream Map_file;
+  Map_file.open("Map_file.txt", ios::in);
+  if (!Map_file)
+    return;
+  freopen("Map_file.txt", "r", stdin);
+  scanf_s("%d", &cnt_map);
+  int n = cnt_map;
+  for (int i = 1; i <= n; i++) {
+    for (int j = 0; j <= 10; j++) {
+      for (int k = 0; k <= 10; k++) {
+        scanf_s("%d", &map[i][k][j]);
+      }
+    }
+  }
+  fclose(stdin);
+  freopen("CON", "r", stdin);
+}
+
+
+//加载怪物信息
+void load_Monster(void) {
+  fstream Monster_file;
+  Monster_file.open("Monster_file.txt", ios::in);
+  if (!Monster_file)
+    return;
+  freopen("Monster_file.txt", "r", stdin);
+  int n;
+  scanf_s("%d", &n);
+  for (int i = 1; i <= n; i++) {
+    Monsters[i].id = i;
+    scanf_s("%d %d %d %d", &Monsters[i].HP, &Monsters[i].attack,
+            &Monsters[i].EXP, &Monsters[i].money);
+  }
+
+  fclose(stdin);
+  freopen("CON", "r", stdin);
+}

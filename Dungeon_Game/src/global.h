@@ -37,7 +37,11 @@ extern IMAGE img_circle_down;
 extern IMAGE img_sword;
 extern IMAGE img_pausemenu;
 extern IMAGE img_saved;
+extern IMAGE img_shop;
+extern IMAGE img_shopnpc;
+extern IMAGE img_shoprandom;
 extern IMAGE img_bewar;
+extern IMAGE img_square;
 extern pair<bool, Monster> show_monster;
 extern int cnt_map;//µØÍ¼²ãÊý
 #endif  // !Global

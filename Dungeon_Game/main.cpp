@@ -19,7 +19,10 @@ IMAGE img_sword;
 IMAGE img_pausemenu;
 IMAGE img_saved;
 IMAGE img_shop;
+IMAGE img_shopnpc;
+IMAGE img_shoprandom;
 IMAGE img_bewar;
+IMAGE img_square;
 pair<bool, Monster> show_monster;
 void start_initial(void);  //初始化，加载文件
 void show(void);
@@ -67,14 +70,17 @@ void start_initial() {
   loadimage(&img_saved, _T("images\\saved.png"));
   loadimage(&img_circle_up, _T("images\\circle_up.png"));
   loadimage(&img_circle_down, _T("images\\circle_down.png"));
+  loadimage(&img_shop, _T("images\\shop.png"));
+  loadimage(&img_shopnpc, _T("images\\shopnpc.png"));
+  loadimage(&img_shoprandom, _T("images\\shoprandom.png"));
   loadimage(&img_pausemenu, _T("images\\pausemenu.png"));
   loadimage(&img_bewar, _T("images\\bewar.png"));
+  loadimage(&img_square, _T("images\\square.png"));
   BeginBatchDraw();
   while (gamestatus == 0)  start_menu();
 }
 
 void show() {
-  //判断是否暂停
        draw_backgraund();
        draw_fixobject();
        draw_unfixobject();
