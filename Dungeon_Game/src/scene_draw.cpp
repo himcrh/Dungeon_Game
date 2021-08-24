@@ -185,7 +185,7 @@ void gameover() {
 void draw_shop(void) {
     int cur = 1;//光标的位置(默认)
     int w_flag = 1;
-    int canafford = 1;
+    int canafford1 = 1,canafford2 = 1;
     while (w_flag) {
       draw_information();
       drawAlpha(0.52 * Width, 50, &img_peach);
@@ -194,25 +194,26 @@ void draw_shop(void) {
       drawAlpha(0.64 * Width, 10, &img_textfile);
       settextcolor(BLACK);
       if (cur < 3) {
-          if (canafford) {
-              settextstyle(20, 0, _T("Helvetica"));
-              outtextxy(0.66 * Width, 20, _T("Choose this one?"));
-              if (cur == 1) {
+              
+              if (cur == 1&&canafford1) {
+                  settextstyle(20, 0, _T("Helvetica"));
+                  outtextxy(0.66 * Width, 20, _T("Choose this one?"));
                   setcolor(BLUE);
                   outtextxy(0.66 * Width, 48, _T("50"));
                   setcolor(RED);
                   outtextxy(0.70 * Width, 48, _T("+50HP"));
               }
-              else {
+              else if(cur == 2&&canafford2) {
+                  settextstyle(20, 0, _T("Helvetica"));
+                  outtextxy(0.66 * Width, 20, _T("Choose this one?"));
                   setcolor(BLUE);
                   outtextxy(0.66 * Width, 48, _T("100"));
                   setcolor(RED);
                   outtextxy(0.70 * Width, 48, _T("+100HP"));
               }
-          }
           else {
-              settextstyle(40, 0, _T("黑体"));
-              outtextxy(0.71 * Width, 22, _T("BYE!!"));
+              settextstyle(20, 0, _T("黑体"));
+              outtextxy(0.67 * Width, 22, _T("CAN'T AFFORD,BYE!!!"));
           }
       }
       else {
@@ -238,14 +239,14 @@ void draw_shop(void) {
                             Hero.money -= 50;
                             Hero.HP += 50;
                         }
-                        else canafford = 0;
+                        else canafford1 = 0;
                     }
                     else {
                         if (Hero.money >= 100) {
                             Hero.money -= 100;
                             Hero.HP += 100;
                         }
-                        else canafford = 0;
+                        else canafford2 = 0;
                     }
                     break;
                 }
