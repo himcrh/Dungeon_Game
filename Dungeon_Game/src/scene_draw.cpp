@@ -79,7 +79,7 @@ void draw_fixobject(void) {
                 drawAlpha(i * Unit, j * Unit, &img_circle_up);
                 break;
             case 4:
-                drawAlpha(i * Unit, j * Unit, &img_peach);
+                drawAlpha(i * Unit, j * Unit, &img_shop);
                 break;
             case 5:
                 drawAlpha(i * Unit, j * Unit, &img_heart);
@@ -183,6 +183,7 @@ void draw_shop(void) {
     int cur = 1;//光标的位置(默认)
     int cur0 = 1;
     while (1) {
+      draw_information();
         for (cur0 = 1; cur0 <= 3; cur0++) {
             drawAlpha(0.52 * Width, cur0 * 50, &img_monsters[cur0]);
         }
