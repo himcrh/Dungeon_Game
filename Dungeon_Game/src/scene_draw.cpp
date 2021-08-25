@@ -257,7 +257,7 @@ void draw_shop(void) {
                         }
                         else canafford1 = 0;
                     }
-                    else {
+                    if(cur == 2) {
                         if (Hero.money >= 100) {
                             Hero.money -= 100;
                             Hero.HP += 100;
