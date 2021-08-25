@@ -337,3 +337,37 @@ void draw_randomshop() {
     FlushBatchDraw();
     }
 }
+
+bool draw_vschoice(void) {
+  int cur = 1;  //光标的位置(默认)
+  while (true) {
+    draw_information();
+    drawAlpha(0.52 * Width, 75, &img_bewar);
+    drawAlpha(0.52 * Width, 125, &img_shopback);
+    settextcolor(BLACK);
+    if (_kbhit()) {
+      switch (_getch()) {
+        case 72:
+          cur--;
+          if (cur == 0)
+            cur = 2;
+          break;
+        case 80:
+          cur++;
+          if (cur > 2)
+            cur -= 2;
+          break;
+        case 32:
+          if (cur == 2) {
+            return false;
+          }
+          if (cur == 1) {
+            return true;
+          }
+          break;
+      }
+    }
+    drawAlpha(0.52 * Width, cur * 50 + 25, &img_square);
+    FlushBatchDraw();
+  }
+}

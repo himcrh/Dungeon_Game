@@ -39,8 +39,12 @@ bool vs_cmp(int cur_monster,int x,int y) {
   if (Hero.HP % Monsters[cur_monster].attack)
     cnt_b++;
   if (cnt_a <= cnt_b) {//能打过
-    battle_details(cur_monster,x,y);
-    return true;
+    if (whether_attack(cur_monster)) {
+      //如果攻击
+      battle_details(cur_monster, x, y);
+      return true;
+    } else
+    return false;
   }
   
   show_monster.second = Monsters[cur_monster];//打不过
@@ -74,4 +78,12 @@ void battle_details(int cur_monster,int x,int y) {
   Hero.money += cur_M.money;
 }
 
-
+bool whether_attack(int cur_monster) {
+  //传入cur_monster用于显示怪物信息
+  //如果攻击的话返回 true
+  //不攻击返回 false
+  if (draw_vschoice())
+    return true;
+  else
+    return false;
+}
