@@ -46,6 +46,7 @@ extern IMAGE img_square;
 extern IMAGE img_shopback;
 extern IMAGE img_textfile;
 extern IMAGE img_randombox;
+extern IMAGE img_attackup;
 extern pair<bool, Monster> show_monster;
 extern int cnt_map;//µØÍ¼²ãÊý
 #endif  // !Global

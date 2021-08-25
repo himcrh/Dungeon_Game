@@ -92,6 +92,9 @@ void draw_fixobject(void) {
             case 6:
                drawAlpha(i * Unit, j * Unit, &img_heart);
                break;
+            case 7:
+                drawAlpha(i * Unit, j * Unit, &img_attackup);
+                break;
             case 8:
                 drawAlpha(i * Unit, j * Unit, &img_shop2);
                 break;
@@ -191,6 +194,7 @@ void gameover() {
 
 //商店的绘制
 void draw_shop(void) {
+    mciSendString(_T("open musics\\windy.mp3 alias wmusic"), NULL, 0, NULL);
     mciSendString(_T("play wmusic"), NULL, 0, NULL);
     int cur = 1;//光标的位置(默认)
     int w_flag = 1;
@@ -243,6 +247,7 @@ void draw_shop(void) {
                     break;
                 case 32:
                     if (cur == 3) {
+                        w_flag = 0;
                         mciSendString(_T("close wmusic"), NULL, 0, NULL);
                     }
                     if (cur == 1) {
@@ -268,6 +273,7 @@ void draw_shop(void) {
 }
 
 void draw_randomshop() {
+    mciSendString(_T("open musics\\windy.mp3 alias wmusic"), NULL, 0, NULL);
     mciSendString(_T("play wmusic"), NULL, 0, NULL);
     int cur = 1;//光标的位置(默认)
     int w_flag = 1;
@@ -284,7 +290,7 @@ void draw_randomshop() {
                 settextstyle(20, 0, _T("Helvetica"));
                 outtextxy(0.66 * Width, 20, _T("GOOD LUCK!"));
                 setcolor(BLUE);
-                outtextxy(0.66 * Width, 48, _T("50"));
+                outtextxy(0.66 * Width, 48, _T("75"));
                 setcolor(RED);
                 outtextxy(0.70 * Width, 48, _T("FOR ONE TRY"));
 

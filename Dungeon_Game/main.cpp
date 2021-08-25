@@ -27,6 +27,7 @@ IMAGE img_bewar;
 IMAGE img_square;
 IMAGE img_shopback;
 IMAGE img_textfile;
+IMAGE img_attackup;
 pair<bool, Monster> show_monster;
 void start_initial(void);  //初始化，加载文件
 void show(void);
@@ -55,6 +56,7 @@ void start_initial() {
   mciSendString(_T("open musics\\background.mp3 alias bmusic"), NULL, 0, NULL);
   mciSendString(_T("open musics\\merry.mp3 alias menumusic"), NULL, 0, NULL);
   mciSendString(_T("open musics\\windy.mp3 alias wmusic"), NULL, 0, NULL);
+  mciSendString(_T("open musics\\got.mp3 alias gmusic"), NULL, 0, NULL);
   mciSendString(_T("play menumusic repeat"), NULL, 0, NULL);
   loadimage(&img_floor, _T("images\\floor6.png"));
   loadimage(&img_floor1, _T("images\\floor7.png"));
@@ -89,6 +91,7 @@ void start_initial() {
   loadimage(&img_square, _T("images\\square.png"));
   loadimage(&img_shopback, _T("images\\shopback.png"));
   loadimage(&img_textfile, _T("images\\textfile.png"));
+  loadimage(&img_attackup, _T("images\\attackstar.png"));
   BeginBatchDraw();
   while (gamestatus == 0)  start_menu();
 }
