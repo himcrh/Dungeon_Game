@@ -82,7 +82,7 @@ bool whether_attack(int cur_monster) {
   //传入cur_monster用于显示怪物信息
   //如果攻击的话返回 true
   //不攻击返回 false
-  if (draw_vschoice())
+  if (draw_vschoice(cur_monster))
     return true;
   else
     return false;

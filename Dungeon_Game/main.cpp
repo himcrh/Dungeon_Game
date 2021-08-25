@@ -57,6 +57,7 @@ void start_initial() {
   mciSendString(_T("open musics\\merry.mp3 alias menumusic"), NULL, 0, NULL);
   mciSendString(_T("open musics\\windy.mp3 alias wmusic"), NULL, 0, NULL);
   mciSendString(_T("open musics\\got.mp3 alias gmusic"), NULL, 0, NULL);
+  mciSendString(_T("open musics\\fight.mp3 alias fmusic"), NULL, 0, NULL);
   mciSendString(_T("play menumusic repeat"), NULL, 0, NULL);
   loadimage(&img_floor, _T("images\\floor6.png"));
   loadimage(&img_floor1, _T("images\\floor7.png"));

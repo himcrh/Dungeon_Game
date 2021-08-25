@@ -136,6 +136,7 @@ void draw_monster(Monster cur_M) {
     outtextxy(Width * 0.76, High * 0.4, _T("EXP:"));
     _stprintf_s(s, _T("%d"), cur_M.EXP);
     outtextxy(Width * 0.84, High * 0.4, s);
+    Sleep(200);
 }
 //英雄信息绘制
 void draw_information(void) {
@@ -337,13 +338,28 @@ void draw_randomshop() {
     FlushBatchDraw();
     }
 }
-
-bool draw_vschoice(void) {
+//交战选择界面
+bool draw_vschoice(int cur_monster) {
   int cur = 1;  //光标的位置(默认)
   while (true) {
     draw_information();
     drawAlpha(0.52 * Width, 75, &img_bewar);
     drawAlpha(0.52 * Width, 125, &img_shopback);
+    drawAlpha(0.68 * Width, 100, &img_monsters[cur_monster]);
+    settextcolor(WHITE);
+    settextstyle(30, 0, _T("Helvetica"));
+    TCHAR s[10];
+    outtextxy(Width * 0.76, High * 0.2, _T("HP:"));
+    _stprintf_s(s, _T("%d"), Monsters[cur_monster].HP);
+    outtextxy(Width * 0.82, High * 0.2, s);
+    settextcolor(WHITE);
+    outtextxy(Width * 0.76, High * 0.3, _T("ATK:"));
+    _stprintf_s(s, _T("%d"), Monsters[cur_monster].attack);
+    outtextxy(Width * 0.84, High * 0.3, s);
+    outtextxy(Width * 0.76, High * 0.4, _T("EXP:"));
+    _stprintf_s(s, _T("%d"), Monsters[cur_monster].EXP);
+    outtextxy(Width * 0.84, High * 0.4, s);
+
     settextcolor(BLACK);
     if (_kbhit()) {
       switch (_getch()) {
@@ -362,6 +378,9 @@ bool draw_vschoice(void) {
             return false;
           }
           if (cur == 1) {
+              mciSendString(_T("close fmusic"), NULL, 0, NULL);
+              mciSendString(_T("open musics\\fight.mp3 alias fmusic"), NULL, 0, NULL);
+              mciSendString(_T("play fmusic"), NULL, 0, NULL);
             return true;
           }
           break;
