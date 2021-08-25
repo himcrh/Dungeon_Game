@@ -121,10 +121,20 @@ void hero_transfer(int x, int y) {
   }
   //商店传送
   if (map[Hero.stair][x][y] == 4) {
+    mciSendString(_T("close bmusic"), NULL, 0, NULL);
+
     draw_shop();//进入到商店绘制页面
+    mciSendString(_T("open musics\\background.mp3 alias bmusic"), NULL, 0, NULL);
+    mciSendString(_T("play bmusic repeat"), NULL, 0, NULL);
+
   }
   if (map[Hero.stair][x][y] == 8) {
+      mciSendString(_T("close bmusic"), NULL, 0, NULL);
+
       draw_randomshop();//进入随机商店
+      mciSendString(_T("open musics\\background.mp3 alias bmusic"), NULL, 0, NULL);
+      mciSendString(_T("play bmusic repeat"), NULL, 0, NULL);
+
   }
 }
 

@@ -14,11 +14,16 @@ void start_menu() {
     Sleep(2);
     if (_kbhit()) {
         char input = _getch();
-        if (input == '1')
+        if (input == '1') {
             gamestatus = 1;
+            mciSendString(_T("close menumusic "), NULL, 0, NULL);
+            mciSendString(_T("play bmusic repeat"), NULL, 0, NULL);
+        }
         else if (input == '2') {
             read_info();
             gamestatus = 1;
+            mciSendString(_T("close menumusic "), NULL, 0, NULL);
+            mciSendString(_T("play bmusic repeat"), NULL, 0, NULL);
         }
         else if (input == '3') {
           gameover();
@@ -186,6 +191,7 @@ void gameover() {
 
 //商店的绘制
 void draw_shop(void) {
+    mciSendString(_T("play wmusic"), NULL, 0, NULL);
     int cur = 1;//光标的位置(默认)
     int w_flag = 1;
     int canafford1 = 1,canafford2 = 1;
@@ -236,7 +242,9 @@ void draw_shop(void) {
                     if (cur > 3) cur -= 3;
                     break;
                 case 32:
-                    if (cur == 3) w_flag = 0;
+                    if (cur == 3) {
+                        mciSendString(_T("close wmusic"), NULL, 0, NULL);
+                    }
                     if (cur == 1) {
                         if (Hero.money >= 50) {
                             Hero.money -= 50;
@@ -260,6 +268,7 @@ void draw_shop(void) {
 }
 
 void draw_randomshop() {
+    mciSendString(_T("play wmusic"), NULL, 0, NULL);
     int cur = 1;//光标的位置(默认)
     int w_flag = 1;
     int canafford = 1;
@@ -301,7 +310,11 @@ void draw_randomshop() {
                 if (cur > 2) cur -= 2;
                 break;
             case 32:
-                if (cur == 2) w_flag = 0;
+                if (cur == 2) {
+                    w_flag = 0;
+                    mciSendString(_T("close wmusic"), NULL, 0, NULL);
+                }
+
                 if (cur == 1) {
                     if (Hero.money >= 75) {
                         Hero.money -= 75;

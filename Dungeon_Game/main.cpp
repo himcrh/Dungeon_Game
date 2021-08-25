@@ -52,6 +52,10 @@ void start_initial() {
   load_Monster();//‘ÿ»Îmonster–≈œ¢
   initgraph(Width, High);
   setbkmode(TRANSPARENT);
+  mciSendString(_T("open musics\\background.mp3 alias bmusic"), NULL, 0, NULL);
+  mciSendString(_T("open musics\\merry.mp3 alias menumusic"), NULL, 0, NULL);
+  mciSendString(_T("open musics\\windy.mp3 alias wmusic"), NULL, 0, NULL);
+  mciSendString(_T("play menumusic repeat"), NULL, 0, NULL);
   loadimage(&img_floor, _T("images\\floor6.png"));
   loadimage(&img_floor1, _T("images\\floor7.png"));
   loadimage(&img_wall, _T("images\\wall1.png"));
@@ -99,6 +103,7 @@ void show() {
            draw_monster(show_monster.second);
        }
        drawAlpha(Hero.position_x, Hero.position_y, &img_hero[Hero.dir]);
+
   Sleep(2);
   FlushBatchDraw();
 }
