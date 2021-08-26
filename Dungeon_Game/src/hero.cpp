@@ -97,6 +97,9 @@ void hero_transfer(int x, int y) {
   y /= 40;
   //下行传送
   if (map[Hero.stair][x][y] == 2) {
+      mciSendString(_T("close tmusic"), NULL, 0, NULL);
+      mciSendString(_T("open musics\\trans.mp3 alias tmusic"), NULL, 0, NULL);
+      mciSendString(_T("play tmusic"), NULL, 0, NULL);
     Hero.stair--;
     for (int i = 0; i <= 10; i++) {
       for (int j = 0; j <= 10; j++) {
@@ -109,6 +112,9 @@ void hero_transfer(int x, int y) {
   }
   //上行传送
   if (map[Hero.stair][x][y] == 3) {
+      mciSendString(_T("close tmusic"), NULL, 0, NULL);
+      mciSendString(_T("open musics\\trans.mp3 alias tmusic"), NULL, 0, NULL);
+      mciSendString(_T("play tmusic"), NULL, 0, NULL);
     Hero.stair++;
     for (int i = 0; i <= 10; i++) {
       for (int j = 0; j <= 10; j++) {

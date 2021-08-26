@@ -98,6 +98,10 @@ void draw_fixobject(void) {
             case 8:
                 drawAlpha(i * Unit, j * Unit, &img_shop2);
                 break;
+            case 9:
+                drawAlpha(i * Unit, j * Unit, &img_badheart);
+                break;
+
             }
         }
     }
@@ -111,8 +115,10 @@ void draw_unfixobject(void) {
     }
 }
 //怪物交战绘制
+
 //打不过
 void draw_nomonster(void) {
+
     settextcolor(RED);
     settextstyle(30, 0, _T("Helvetica"));
     outtextxy(Width * 0.76, High * 0.1, _T("RUN,MY BOY!!!"));
@@ -215,13 +221,13 @@ void draw_shop(void) {
                   setcolor(BLUE);
                   outtextxy(0.66 * Width, 48, _T("50"));
                   setcolor(RED);
-                  outtextxy(0.70 * Width, 48, _T("+50HP"));
+                  outtextxy(0.70 * Width, 48, _T("+50/80HP"));
               }
               else if(cur == 2&&canafford2) {
                   settextstyle(20, 0, _T("Helvetica"));
                   outtextxy(0.66 * Width, 20, _T("Choose this one?"));
                   setcolor(BLUE);
-                  outtextxy(0.66 * Width, 48, _T("100"));
+                  outtextxy(0.66 * Width, 48, _T("80"));
                   setcolor(RED);
                   outtextxy(0.70 * Width, 48, _T("+100HP"));
               }
@@ -254,13 +260,14 @@ void draw_shop(void) {
                     if (cur == 1) {
                         if (Hero.money >= 50) {
                             Hero.money -= 50;
-                            Hero.HP += 50;
+                            if (Hero.HP < 300) Hero.HP += 80;
+                            else  Hero.HP += 50;
                         }
                         else canafford1 = 0;
                     }
                     if(cur == 2) {
-                        if (Hero.money >= 100) {
-                            Hero.money -= 100;
+                        if (Hero.money >= 80) {
+                            Hero.money -= 80;
                             Hero.HP += 100;
                         }
                         else canafford2 = 0;
@@ -325,7 +332,7 @@ void draw_randomshop() {
                 if (cur == 1) {
                     if (Hero.money >= 75) {
                         Hero.money -= 75;
-                        Hero.HP += 50 * (rand() % 2);
+                        Hero.HP += 50 * (rand() % 4);
                     }
                     else canafford = 0;
                 }
@@ -343,6 +350,7 @@ bool draw_vschoice(int cur_monster) {
   int cur = 1;  //光标的位置(默认)
   while (true) {
     draw_information();
+
     drawAlpha(0.52 * Width, 75, &img_bewar);
     drawAlpha(0.52 * Width, 125, &img_shopback);
     drawAlpha(0.68 * Width, 100, &img_monsters[cur_monster]);

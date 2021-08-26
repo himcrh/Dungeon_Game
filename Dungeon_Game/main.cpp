@@ -10,6 +10,7 @@ IMAGE img_floor,img_floor1;
 IMAGE img_wall;
 IMAGE img_monsters[7];
 IMAGE img_heart,img_peach;
+IMAGE img_badheart;
 IMAGE img_cloud[5];
 IMAGE img_hero[5],img_bighero;
 IMAGE img_startmenu;
@@ -58,6 +59,7 @@ void start_initial() {
   mciSendString(_T("open musics\\windy.mp3 alias wmusic"), NULL, 0, NULL);
   mciSendString(_T("open musics\\got.mp3 alias gmusic"), NULL, 0, NULL);
   mciSendString(_T("open musics\\fight.mp3 alias fmusic"), NULL, 0, NULL);
+  mciSendString(_T("open musics\\trans.mp3 alias tmusic"), NULL, 0, NULL);
   mciSendString(_T("play menumusic repeat"), NULL, 0, NULL);
   loadimage(&img_floor, _T("images\\floor6.png"));
   loadimage(&img_floor1, _T("images\\floor7.png"));
@@ -72,6 +74,7 @@ void start_initial() {
   loadimage(&img_monsters[4], _T("images\\monster_4.png"));
   loadimage(&img_monsters[5], _T("images\\monster_5.png"));
   loadimage(&img_heart, _T("images\\heart.png"));
+  loadimage(&img_badheart, _T("images\\badheart.png"));
   loadimage(&img_peach, _T("images\\peach.png"));
   loadimage(&img_cloud[1], _T("images\\cloud_1.png"));
   loadimage(&img_cloud[2], _T("images\\cloud_2.png"));

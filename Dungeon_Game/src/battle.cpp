@@ -3,28 +3,42 @@
 bool vs_cmp(int cur_monster,int x,int y) {
   //不是怪物，是道具或其他
   if (cur_monster > 90 || cur_monster <= 10) {
-
+      //peach
     if (cur_monster == 5) {
     mciSendString(_T("close gmusic"), NULL, 0, NULL);
     mciSendString(_T("open musics\\got.mp3 alias gmusic"), NULL, 0, NULL);
     mciSendString(_T("play gmusic"), NULL, 0, NULL);
-      Hero.HP += 50;
+    if (Hero.HP < 300) Hero.HP += 80;
+    else  Hero.HP += 50;
       map[Hero.stair][x][y] = 0;
     }
-    if (cur_monster == 6) {
+    //heart
+    if (cur_monster == 6) {   
     mciSendString(_T("close gmusic"), NULL, 0, NULL);
     mciSendString(_T("open musics\\got.mp3 alias gmusic"), NULL, 0, NULL);
     mciSendString(_T("play gmusic"), NULL, 0, NULL);
       Hero.HP += 100;
       map[Hero.stair][x][y] = 0;
     }
+    //star
     if (cur_monster == 7) {
     mciSendString(_T("close gmusic"), NULL, 0, NULL);
     mciSendString(_T("open musics\\got.mp3 alias gmusic"), NULL, 0, NULL);
-    mciSendString(_T("play gmusic"), NULL, 0, NULL);      Hero.HP += 100;
-      Hero.attack += 20;
+    mciSendString(_T("play gmusic"), NULL, 0, NULL);
+      Hero.HP += 100;
+      Hero.attack += 30;
       map[Hero.stair][x][y] = 0;
     }
+    //badheart
+    if (cur_monster == 9) {
+        mciSendString(_T("close gmusic"), NULL, 0, NULL);
+        mciSendString(_T("open musics\\got.mp3 alias gmusic"), NULL, 0, NULL);
+        mciSendString(_T("play gmusic"), NULL, 0, NULL);
+        Hero.HP += 30;
+        Hero.attack -= 40;
+        map[Hero.stair][x][y] = 0;
+    }
+
     return true;
   } 
     
