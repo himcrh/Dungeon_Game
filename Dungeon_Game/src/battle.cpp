@@ -38,6 +38,19 @@ bool vs_cmp(int cur_monster,int x,int y) {
         Hero.attack -= 40;
         map[Hero.stair][x][y] = 0;
     }
+    if (cur_monster == 10) {
+        static int ftotal = 0;
+        if (ftotal == 2) {
+            mciSendString(_T("close hmusic"), NULL, 0, NULL);
+            mciSendString(_T("open musics\\hurt.mp3 alias hmusic"), NULL, 0, NULL);
+            mciSendString(_T("play hmusic"), NULL, 0, NULL);
+            Hero.HP -= 10;
+            ftotal = 0;
+        }
+        else {
+            ftotal++;
+        }
+    }
 
     return true;
   } 

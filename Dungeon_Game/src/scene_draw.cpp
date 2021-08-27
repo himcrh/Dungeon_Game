@@ -101,6 +101,9 @@ void draw_fixobject(void) {
             case 9:
                 drawAlpha(i * Unit, j * Unit, &img_badheart);
                 break;
+            case 10:
+                drawAlpha(i * Unit, j * Unit, &img_fire);
+                break;
 
             }
         }
