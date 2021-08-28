@@ -91,8 +91,9 @@ void hero_move() {
 
 //传送
 void hero_transfer(int x, int y) {
-  if (x % 40 || y % 40)
-    return;
+    if (x % 40 || y % 40)
+        return;
+    
   x /= 40;
   y /= 40;
   //下行传送

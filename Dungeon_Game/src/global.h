@@ -49,6 +49,7 @@ extern IMAGE img_randombox;
 extern IMAGE img_attackup;
 extern IMAGE img_badheart;
 extern IMAGE img_fire;
+extern IMAGE img_attack4;
 extern pair<bool, Monster> show_monster;
 extern int cnt_map;//µØÍ¼²ãÊý
 #endif  // !Global
