@@ -401,3 +401,9 @@ bool draw_vschoice(int cur_monster) {
     FlushBatchDraw();
   }
 }
+
+void draw_vs_boss(void) {
+  draw_backgraund();
+  drawAlpha(Hero.position_x, Hero.position_y, &img_hero[Hero.dir]);
+  FlushBatchDraw();
+}

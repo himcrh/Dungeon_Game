@@ -9,4 +9,10 @@ struct Monster {
   int money;
   int EXP;
 };
+struct BOSS {
+  int HP;
+  int x;
+  int y;
+};
+void vs_boss(BOSS cur_boss);
 #endif  // !MONSTERS

@@ -22,6 +22,7 @@ extern int gamestatus;
 extern int map[10][13][13];
 extern HERO Hero;
 extern Monster Monsters[7];
+extern BOSS boss_1;
 extern IMAGE img_background;
 extern IMAGE img_test;
 extern IMAGE img_floor,img_floor1;

@@ -19,4 +19,7 @@ void hero_initial(void);
 void hero_move(void);
 bool is_Forbidden(int x,int y);
 void hero_transfer(int x, int y);
+void hero_move_boss(void);
+bool is_Forbidden_boss(int x, int y);
+void hero_attack(void);
 #endif  // !hero

@@ -143,6 +143,57 @@ void hero_transfer(int x, int y) {
       mciSendString(_T("play bmusic repeat"), NULL, 0, NULL);
 
   }
+  //Boss¹Ø¿¨´«ËÍ
+  if (map[Hero.stair][x][y] == 101) {
+    vs_boss(boss_1);
+  }
 }
+
+void hero_move_boss(void) {
+  if (_kbhit()) {
+    switch (_getch()) {
+        // up
+      case 72:
+        Hero.dir = 1;
+        if (is_Forbidden_boss(Hero.position_x, Hero.position_y - 10))
+          Hero.position_y -= 10;
+        break;
+        // down
+      case 80:
+        Hero.dir = 2;
+        if (is_Forbidden_boss(Hero.position_x, Hero.position_y + 10))
+          Hero.position_y += 10;
+        break;
+        // left
+      case 75:
+        Hero.dir = 3;
+        if (is_Forbidden_boss(Hero.position_x - 10, Hero.position_y))
+          Hero.position_x -= 10;
+        break;
+        // right
+      case 77:
+        Hero.dir = 4;
+        if (is_Forbidden_boss(Hero.position_x + 10, Hero.position_y))
+          Hero.position_x += 10;
+        break;
+        // space(´«ËÍÕó)
+      case 32:
+        hero_attack();
+        break;
+    }
+  }
+}
+
+bool is_Forbidden_boss(int x, int y) {
+  if (x < 0 || y < 0 || x > 400 || y > 400)
+    return FALSE;
+  return true;
+}
+
+void hero_attack(void) {
+  
+}
+
+
 
 
