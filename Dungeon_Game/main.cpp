@@ -31,6 +31,7 @@ IMAGE img_textfile;
 IMAGE img_attackup;
 IMAGE img_fire;
 IMAGE img_attack4;
+IMAGE img_over;
 pair<bool, Monster> show_monster;
 void start_initial(void);  //初始化，加载文件
 void show(void);
@@ -42,6 +43,7 @@ Monster Monsters[7];
 int main() {
   start_initial();
   while (gamestatus) {
+    while (Hero.stair == 7) over_menu();
     while (gamestatus == 2) pause_menu();
     show();
     update_with_input();
@@ -86,6 +88,7 @@ void start_initial() {
   loadimage(&img_bighero, _T("images\\BigLink.png"));
   loadimage(&img_sword, _T("images\\sword.png"));
   loadimage(&img_saved, _T("images\\saved.png"));
+  loadimage(&img_over, _T("images\\overmenu.png"));
   loadimage(&img_circle_up, _T("images\\circle_up.png"));
   loadimage(&img_circle_down, _T("images\\circle_down.png"));
   loadimage(&img_shop, _T("images\\shop.png"));
