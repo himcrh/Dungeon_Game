@@ -110,6 +110,7 @@ void hero_transfer(int x, int y) {
         }
       }
     }
+    return;
   }
   //上行传送
   if (map[Hero.stair][x][y] == 3) {
@@ -125,6 +126,7 @@ void hero_transfer(int x, int y) {
         }
       }
     }
+    return;
   }
   //商店传送
   if (map[Hero.stair][x][y] == 4) {
@@ -133,7 +135,7 @@ void hero_transfer(int x, int y) {
     draw_shop();//进入到商店绘制页面
     mciSendString(_T("open musics\\background.mp3 alias bmusic"), NULL, 0, NULL);
     mciSendString(_T("play bmusic repeat"), NULL, 0, NULL);
-
+    return;
   }
   if (map[Hero.stair][x][y] == 8) {
       mciSendString(_T("close bmusic"), NULL, 0, NULL);
@@ -141,11 +143,12 @@ void hero_transfer(int x, int y) {
       draw_randomshop();//进入随机商店
       mciSendString(_T("open musics\\background.mp3 alias bmusic"), NULL, 0, NULL);
       mciSendString(_T("play bmusic repeat"), NULL, 0, NULL);
-
+      return;
   }
   //Boss关卡传送
   if (map[Hero.stair][x][y] == 101) {
     vs_boss(boss_1);
+    return;
   }
 }
 
