@@ -119,7 +119,7 @@ void show() {
            draw_monster(show_monster.second);
        }
        drawAlpha(Hero.position_x, Hero.position_y, &img_hero[Hero.dir]);
-
+       draw_smog();
   Sleep(2);
   FlushBatchDraw();
 }

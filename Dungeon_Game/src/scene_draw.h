@@ -7,6 +7,7 @@ void draw_unfixobject(void);
 void draw_information(void);
 void draw_nomonster(void);
 void draw_monster(struct Monster cur_M);
+void draw_smog(void);
 void start_menu(void);
 void pause_menu(void);
 void over_menu(void);

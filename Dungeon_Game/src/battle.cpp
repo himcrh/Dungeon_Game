@@ -85,6 +85,7 @@ void battle_details(int cur_monster,int x,int y) {
     draw_fixobject();
     draw_unfixobject();
     drawAlpha(Hero.position_x, Hero.position_y, &img_hero[Hero.dir]);
+    draw_smog();
     FlushBatchDraw();
     Sleep(200);
   }
