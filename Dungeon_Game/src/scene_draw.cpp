@@ -413,7 +413,17 @@ bool draw_vschoice(int cur_monster) {
     FlushBatchDraw();
   }
 }
-
+void draw_smog(void) {
+    for (int i = 0; i <= 440; i++) {
+        for (int j = 0; j <= 440; j++) {
+            if ((Hero.position_x + 20 - j) * (Hero.position_x + 20 - j) + (Hero.position_y + 20 - i) * (Hero.position_y + 20 - i) >= 2000) {
+                setfillcolor(DARKGRAY);
+                setlinecolor(DARKGRAY);
+                fillrectangle(i, j, i + 2, j + 2);
+            }
+        }
+    }
+}
 void draw_vs_boss(void) {
   draw_backgraund();
   
