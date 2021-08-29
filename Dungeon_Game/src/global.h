@@ -15,6 +15,7 @@
 #include"battle.h"
 #include"info_load.h"
 #include<vector>
+#include<time.h>
 using namespace std;
 #define High 440
 #define Width 880
