@@ -37,7 +37,7 @@ void pause_menu() {
     settextcolor(BLACK);
     settextstyle(30, 0, _T("ºÚÌå"));
     settextcolor(BLUE);
-    outtextxy(Width * 0.35, High * 5.2 / 8, _T("ESC ENTER THE GAME"));
+    outtextxy(Width * 0.35, High * 5.2 / 8, _T("PRESS ESC TO ENTER GAME"));
     settextcolor(BROWN);
     outtextxy(Width * 0.35, High * 6 / 8, _T("2 SAVE"));
     settextcolor(MAGENTA);    
@@ -60,7 +60,17 @@ void pause_menu() {
         }
     }
 }
+void over_menu() {
+    drawAlpha(0, 0, &img_over);
+    mciSendString(_T("close bmusic"), NULL, 0, NULL);
+    mciSendString(_T("open musics\\merry.mp3 alias menumusic"), NULL, 0, NULL);
+    mciSendString(_T("play menumusic repeat"), NULL, 0, NULL);
 
+    FlushBatchDraw();
+    while (_kbhit()) {
+        if (_getch() == ' ') gameover(); 
+    }
+}
 //µØÍ¼±³¾°»æÖÆ
 void draw_backgraund(void) {
   for (int i = 0; i <= 10; i++) {
