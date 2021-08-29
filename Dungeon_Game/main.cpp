@@ -13,6 +13,7 @@ IMAGE img_heart,img_peach;
 IMAGE img_badheart;
 IMAGE img_cloud[5];
 IMAGE img_hero[5],img_bighero;
+IMAGE img_swordair[5];
 IMAGE img_startmenu;
 IMAGE img_circle_up;
 IMAGE img_circle_down;
@@ -32,6 +33,7 @@ IMAGE img_attackup;
 IMAGE img_fire;
 IMAGE img_attack4;
 IMAGE img_over;
+IMAGE img_circle_boss;
 pair<bool, Monster> show_monster;
 void start_initial(void);  //初始化，加载文件
 void show(void);
@@ -103,8 +105,12 @@ void start_initial() {
   loadimage(&img_textfile, _T("images\\textfile.png"));
   loadimage(&img_attackup, _T("images\\attackstar.png"));
   loadimage(&img_attack4, _T("images\\Link_R1.png"));
-
+  loadimage(&img_circle_boss, _T("images\\circle_boss.png"));
   loadimage(&img_fire, _T("images\\fire.png"));
+  loadimage(&img_swordair[1], _T("images\\swordair_u.png"));
+  loadimage(&img_swordair[2], _T("images\\swordair_d.png"));
+  loadimage(&img_swordair[3], _T("images\\swordair_l.png"));
+  loadimage(&img_swordair[4], _T("images\\swordair_r.png"));
   BeginBatchDraw();
   while (gamestatus == 0)  start_menu();
 }

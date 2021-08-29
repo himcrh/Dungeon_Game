@@ -1,5 +1,7 @@
 #include "hero.h"
 #include"global.h"
+
+vector<SWORDAIR> swordairs;
 //英雄信息初始化
 void hero_initial(void) {
     Hero.HP = 500;
@@ -194,7 +196,7 @@ bool is_Forbidden_boss(int x, int y) {
 }
 
 void hero_attack(void) {
-  
+  swordairs.push_back({Hero.position_x, Hero.position_y, 1, Hero.dir});
 }
 
 

@@ -15,6 +15,12 @@ struct HERO {
 	int sword;
     int dir;//人物面向方向
 };
+struct SWORDAIR {
+  int x, y;
+  int attack;
+  int dir;
+};
+
 void hero_initial(void);
 void hero_move(void);
 bool is_Forbidden(int x,int y);

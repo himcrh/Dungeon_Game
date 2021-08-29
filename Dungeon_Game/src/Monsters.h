@@ -15,4 +15,5 @@ struct BOSS {
   int y;
 };
 void vs_boss(BOSS cur_boss);
+void move_swordair(void);
 #endif  // !MONSTERS

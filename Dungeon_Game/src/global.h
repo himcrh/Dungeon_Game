@@ -14,6 +14,7 @@
 #include"Monsters.h"
 #include"battle.h"
 #include"info_load.h"
+#include<vector>
 using namespace std;
 #define High 440
 #define Width 880
@@ -32,9 +33,11 @@ extern IMAGE img_heart, img_peach;
 extern IMAGE img_startmenu;
 extern IMAGE img_magiccircle;
 extern IMAGE img_hero[5],img_bighero;
+extern IMAGE img_swordair[5];
 extern IMAGE img_cloud[5];
 extern IMAGE img_circle_up;
 extern IMAGE img_circle_down;
+extern IMAGE img_circle_boss;
 extern IMAGE img_sword;
 extern IMAGE img_pausemenu;
 extern IMAGE img_saved;
@@ -54,4 +57,5 @@ extern IMAGE img_over;
 extern IMAGE img_attack4;
 extern pair<bool, Monster> show_monster;
 extern int cnt_map;//µØÍ¼²ãÊý
+extern vector<SWORDAIR> swordairs;
 #endif  // !Global

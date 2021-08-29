@@ -114,7 +114,9 @@ void draw_fixobject(void) {
             case 10:
                 drawAlpha(i * Unit, j * Unit, &img_fire);
                 break;
-
+            case 101:
+                drawAlpha(i * Unit, j * Unit, &img_circle_boss);
+                break;
             }
         }
     }
@@ -414,6 +416,13 @@ bool draw_vschoice(int cur_monster) {
 
 void draw_vs_boss(void) {
   draw_backgraund();
+  
+  
   drawAlpha(Hero.position_x, Hero.position_y, &img_hero[Hero.dir]);
+  drawAlpha(boss_1.x, boss_1.y, &img_bighero);
+  for (auto& i : swordairs) {
+    drawAlpha(i.x, i.y, &img_swordair[i.dir]);
+  }
+  draw_information();
   FlushBatchDraw();
 }
