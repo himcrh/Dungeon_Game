@@ -414,6 +414,7 @@ bool draw_vschoice(int cur_monster) {
   }
 }
 void draw_smog(void) {
+    /*
     for (int i = 0; i <= 440; i+=5) {
         for (int j = 0; j <= 440; j+=5) {
             if ((Hero.position_x + 20 - j) * (Hero.position_x + 20 - j) + (Hero.position_y + 20 - i) * (Hero.position_y + 20 - i) >= 2000) {
@@ -422,7 +423,16 @@ void draw_smog(void) {
                 fillrectangle(j, i, j + 6, i + 6);
             }
         }
-    }
+    }*/
+  //setfillcolor(DARKGRAY);
+  setlinecolor(DARKGRAY);
+  //fillrectangle(0, 0, 441, 441);
+  setlinestyle(PS_SOLID | PS_JOIN_BEVEL, 600);
+  circle(Hero.position_x + 20, Hero.position_y + 20,360);
+  setlinestyle(PS_SOLID | PS_JOIN_BEVEL, 1);
+  
+  //FlushBatchDraw();
+  //clearcircle(Hero.position_x+20,Hero.position_y+20,20);
 }
 void draw_vs_boss(void) {
   draw_backgraund();

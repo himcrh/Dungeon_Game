@@ -119,13 +119,14 @@ void show() {
        draw_backgraund();
        draw_fixobject();
        draw_unfixobject();
+       draw_smog();
        draw_information();
        if (show_monster.first) {
            draw_nomonster();
            draw_monster(show_monster.second);
        }
        drawAlpha(Hero.position_x, Hero.position_y, &img_hero[Hero.dir]);
-       draw_smog();
+       
   Sleep(2);
   FlushBatchDraw();
 }

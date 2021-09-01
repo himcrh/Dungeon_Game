@@ -80,12 +80,13 @@ void battle_details(int cur_monster,int x,int y) {
     if (cur_M.HP > 0)
       Hero.HP -= cur_M.attack;
     draw_backgraund();
-    draw_information();
+    
     draw_monster(cur_M);
     draw_fixobject();
     draw_unfixobject();
     drawAlpha(Hero.position_x, Hero.position_y, &img_hero[Hero.dir]);
     draw_smog();
+    draw_information();
     FlushBatchDraw();
     Sleep(200);
   }
