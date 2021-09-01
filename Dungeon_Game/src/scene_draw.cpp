@@ -427,7 +427,7 @@ void draw_smog(void) {
   //setfillcolor(DARKGRAY);
   setlinecolor(DARKGRAY);
   //fillrectangle(0, 0, 441, 441);
-  setlinestyle(PS_SOLID | PS_JOIN_BEVEL, 600);
+  setlinestyle(PS_SOLID | PS_JOIN_BEVEL, 620);
   circle(Hero.position_x + 20, Hero.position_y + 20,360);
   setlinestyle(PS_SOLID | PS_JOIN_BEVEL, 1);
   
