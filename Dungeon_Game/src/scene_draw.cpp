@@ -208,6 +208,16 @@ void draw_information(void) {
     drawAlpha(Width * 0.7,High * 0.57, &img_bighero);
 }
 
+void die_menu(void) {
+    drawAlpha(0, 0, &img_diemenu);
+    FlushBatchDraw();
+    mciSendString(_T("close bmusic"), NULL, 0, NULL);
+    mciSendString(_T("open musics\\flower.mp3 alias diemusic"), NULL, 0, NULL);
+    mciSendString(_T("play diemusic repeat"), NULL, 0, NULL);
+    while (_kbhit()) {
+        if (_getch() == ' ') gameover();
+    }
+}
 void gameover() {
   EndBatchDraw();
   closegraph();

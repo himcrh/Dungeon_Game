@@ -217,14 +217,5 @@ void hero_attack(void) {
 }
 
 
-void hero_die(void) {
-        drawAlpha(0, 0, &img_diemenu);
-        FlushBatchDraw();
-        mciSendString(_T("close bmusic"), NULL, 0, NULL);
-        mciSendString(_T("open musics\\merry.mp3 alias diemusic"), NULL, 0, NULL);
-        mciSendString(_T("play diemusic repeat"), NULL, 0, NULL);
-        while (_kbhit()) {
-            if(_getch() == ' ') gameover();
-        }
-}
+
 

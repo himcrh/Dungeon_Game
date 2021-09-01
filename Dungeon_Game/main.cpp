@@ -46,10 +46,10 @@ Monster Monsters[7];
 int main() {
   start_initial();
   while (gamestatus) {
+    while (Hero.HP <= 0) die_menu();
     while (Hero.stair == 7) over_menu();
     while (gamestatus == 2) pause_menu();
-    if(Hero.HP > 0) show();
-    else hero_die();
+    show();
     update_with_input();
   }
   return 0;
@@ -69,6 +69,7 @@ void start_initial() {
   mciSendString(_T("open musics\\fight.mp3 alias fmusic"), NULL, 0, NULL);
   mciSendString(_T("open musics\\trans.mp3 alias tmusic"), NULL, 0, NULL);
   mciSendString(_T("open musics\\hurt.mp3 alias hmusic"), NULL, 0, NULL);
+  mciSendString(_T("open musics\\flower.mp3 alias diemusic"), NULL, 0, NULL);
   mciSendString(_T("play menumusic repeat"), NULL, 0, NULL);
   loadimage(&img_floor, _T("images\\floor6.png"));
   loadimage(&img_floor1, _T("images\\floor7.png"));
