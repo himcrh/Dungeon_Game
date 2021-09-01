@@ -126,6 +126,7 @@ void show() {
        }
        drawAlpha(Hero.position_x, Hero.position_y, &img_hero[Hero.dir]);
   Sleep(2);
+  draw_smog();
   FlushBatchDraw();
 }
 

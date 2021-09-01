@@ -414,12 +414,12 @@ bool draw_vschoice(int cur_monster) {
   }
 }
 void draw_smog(void) {
-    for (int i = 0; i <= 440; i++) {
-        for (int j = 0; j <= 440; j++) {
-            if ((Hero.position_x + 20 - j) * (Hero.position_x + 20 - j) + (Hero.position_y + 20 - i) * (Hero.position_y + 20 - i) >= 2000) {
+    for (int i = 0; i <= 21; i++) {
+        for (int j = 0; j <= 21; j++) {
+            if (fabs(Hero.position_x + 20 - j*20) >50 || fabs(Hero.position_y + 20 - i*20) >50) {
                 setfillcolor(DARKGRAY);
                 setlinecolor(DARKGRAY);
-                fillrectangle(i, j, i + 2, j + 2);
+                fillrectangle(j*20, i*20, (j + 1)*20, (i + 1)*20);
             }
         }
     }
