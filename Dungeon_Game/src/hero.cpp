@@ -1,6 +1,6 @@
 #include "hero.h"
 #include"global.h"
-
+clock_t time_swordair = clock();
 vector<SWORDAIR> swordairs;
 //英雄信息初始化
 void hero_initial(void) {
@@ -196,7 +196,11 @@ bool is_Forbidden_boss(int x, int y) {
 }
 
 void hero_attack(void) {
-  swordairs.push_back({Hero.position_x, Hero.position_y, 1, Hero.dir});
+  double d_time = (double)(clock() - time_swordair) / CLOCKS_PER_SEC;
+  if (d_time > 0.2) {
+    swordairs.push_back({Hero.position_x, Hero.position_y, 1, Hero.dir});
+    time_swordair = clock();
+  }
 }
 
 
