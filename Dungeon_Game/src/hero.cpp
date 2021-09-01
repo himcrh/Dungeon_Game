@@ -34,7 +34,7 @@ bool is_Forbidden(int x, int y) {
     }
       
   }
-  if (y % 40 == 0) {
+  else if (y % 40 == 0) {
     if (map[Hero.stair][dx][dy] != 1 && map[Hero.stair][dx + 1][dy] != 1) {
       if (vs_cmp(map[Hero.stair][dx][dy], dx, dy) &&
           vs_cmp(map[Hero.stair][dx + 1][dy], dx+1, dy)) {
@@ -42,24 +42,24 @@ bool is_Forbidden(int x, int y) {
       }
     }
   }
-  
+  /*
   if (map[Hero.stair][dx][dy] ==0 && map[Hero.stair][dx][dy + 1] == 0 &&
       map[Hero.stair][dx + 1][dy] ==0 &&
       map[Hero.stair][dx + 1][dy + 1] ==0) {
     return 1;
-  }
-  /*
-  if (map[Hero.stair][dx][dy] != 1 && map[Hero.stair][dx][dy + 1] != 1 &&
+  }*/
+  
+  else if (map[Hero.stair][dx][dy] != 1 && map[Hero.stair][dx][dy + 1] != 1 &&
       map[Hero.stair][dx + 1][dy] != 1 &&
       map[Hero.stair][dx + 1][dy + 1] != 1) {
     if (vs_cmp(map[Hero.stair][dx][dy], dx, dy) &&
       vs_cmp(map[Hero.stair][dx + 1][dy], dx + 1, dy) &&
-      vs_cmp(map[Hero.stair][dx][dy], dx, dy) &&
+      vs_cmp(map[Hero.stair][dx+1][dy+1], dx+1, dy+1) &&
       vs_cmp(map[Hero.stair][dx][dy + 1], dx, dy + 1)) {
     return 1;
     }
   }
-  */
+  
   return 0;
 }
 
