@@ -34,6 +34,7 @@ IMAGE img_fire;
 IMAGE img_attack4;
 IMAGE img_over;
 IMAGE img_circle_boss;
+IMAGE img_diemenu;
 pair<bool, Monster> show_monster;
 void start_initial(void);  //初始化，加载文件
 void show(void);
@@ -47,7 +48,8 @@ int main() {
   while (gamestatus) {
     while (Hero.stair == 7) over_menu();
     while (gamestatus == 2) pause_menu();
-    show();
+    if(Hero.HP > 0) show();
+    else hero_die();
     update_with_input();
   }
   return 0;
@@ -111,6 +113,7 @@ void start_initial() {
   loadimage(&img_swordair[2], _T("images\\swordair_d.png"));
   loadimage(&img_swordair[3], _T("images\\swordair_l.png"));
   loadimage(&img_swordair[4], _T("images\\swordair_r.png"));
+  loadimage(&img_diemenu, _T("images\\gameover.png"));
   BeginBatchDraw();
   while (gamestatus == 0)  start_menu();
 }
@@ -132,5 +135,5 @@ void show() {
 }
 
 void update_with_input(void) {
-  hero_move();
+    hero_move();
 }

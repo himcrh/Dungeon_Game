@@ -56,6 +56,7 @@ extern IMAGE img_badheart;
 extern IMAGE img_fire;
 extern IMAGE img_over;
 extern IMAGE img_attack4;
+extern IMAGE img_diemenu;
 extern pair<bool, Monster> show_monster;
 extern int cnt_map;//µØÍ¼²ãÊý
 extern vector<SWORDAIR> swordairs;
