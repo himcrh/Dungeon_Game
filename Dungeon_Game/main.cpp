@@ -35,6 +35,7 @@ IMAGE img_attack4;
 IMAGE img_over;
 IMAGE img_circle_boss;
 IMAGE img_diemenu;
+IMAGE img_boss[4];
 pair<bool, Monster> show_monster;
 void start_initial(void);  //初始化，加载文件
 void show(void);
@@ -78,6 +79,8 @@ void start_initial() {
   loadimage(&img_hero[2], _T("images\\Link_D.png"));
   loadimage(&img_hero[3], _T("images\\Link_L.png"));
   loadimage(&img_hero[4], _T("images\\Link_R.png"));
+  loadimage(&img_boss[1], _T("images\\boss_L.png"));
+  loadimage(&img_boss[2], _T("images\\boss_R.png"));
   loadimage(&img_monsters[1], _T("images\\monster_1.png"));
   loadimage(&img_monsters[2], _T("images\\monster_2.png"));
   loadimage(&img_monsters[3], _T("images\\monster_3.png"));
