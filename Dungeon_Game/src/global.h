@@ -21,6 +21,7 @@ using namespace std;
 #define Width 880
 #define Unit 40
 extern int gamestatus;
+extern int smogstatus;
 extern int map[10][13][13];
 extern HERO Hero;
 extern Monster Monsters[7];

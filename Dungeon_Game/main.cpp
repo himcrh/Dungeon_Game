@@ -4,6 +4,7 @@
 int cnt_map;
 int map[10][13][13];
 int gamestatus;
+int smogstatus;
 IMAGE img_background;
 IMAGE img_test;
 IMAGE img_floor,img_floor1;
@@ -126,7 +127,7 @@ void show() {
        draw_backgraund();
        draw_fixobject();
        draw_unfixobject();
-       draw_smog();
+       if (smogstatus) draw_smog();
        draw_information();
        if (show_monster.first) {
            draw_nomonster();

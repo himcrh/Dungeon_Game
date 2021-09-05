@@ -3,9 +3,9 @@
 
 void save_info(void) {
   freopen("data.txt", "w", stdout);
-  printf("%d %d %d %d %d %d %d %d %d %d %d %d %d\n", Hero.HP, Hero.attack, Hero.stair,
+  printf("%d %d %d %d %d %d %d %d %d %d %d %d %d %d\n", Hero.HP, Hero.attack, Hero.stair,
          Hero.Level, Hero.dir, Hero.sword, Hero.item_yellow, Hero.item_blue,
-         Hero.item_red,Hero.position_x,Hero.position_y,Hero.money,Hero.EXP);//¥Êµµ”¢–€–≈œ¢
+         Hero.item_red,Hero.position_x,Hero.position_y,Hero.money,Hero.EXP,smogstatus);//¥Êµµ”¢–€–≈œ¢
   printf("%d\n", cnt_map);//µÿÕº≤„ ˝
   for (int i = 1; i <= cnt_map; i++) {
     for (int j = 0; j <= 10; j++) {
@@ -26,9 +26,9 @@ bool read_info(void) {
   if (!data_file)
     return 0;
   freopen("data.txt", "r", stdin);
-  scanf_s("%d %d %d %d %d %d %d %d %d %d %d %d %d",&Hero.HP,&Hero.attack,&Hero.stair,
+  scanf_s("%d %d %d %d %d %d %d %d %d %d %d %d %d %d",&Hero.HP,&Hero.attack,&Hero.stair,
          &Hero.Level,&Hero.dir,&Hero.sword, &Hero.item_yellow, &Hero.item_blue, &Hero.item_red, &Hero.position_x,
-          &Hero.position_y,&Hero.money,&Hero.EXP);  //∂¡µµ”¢–€–≈œ¢
+          &Hero.position_y,&Hero.money,&Hero.EXP,&smogstatus);  //∂¡µµ”¢–€–≈œ¢
   scanf_s("%d", &cnt_map);
   int n = cnt_map;
   for (int i = 1; i <= n; i++) {
